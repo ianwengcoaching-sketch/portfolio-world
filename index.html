@@ -1,0 +1,2583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* =====================================================================
+   CONTENT：頁面上所有看得到的文字都在這裡。
+   之後要改字，只改這個物件就好，不用碰下面的 3D 程式。
+
+   內容來源：使用者提供的履歷（公開版）。數字照抄，不四捨五入、不美化。
+   公開規則：只放姓名、職稱、公司、年份、成果數字、技能、語言、城市、LinkedIn。
+            不放 email、電話、地址、生日、證件號、簽證狀態、薪資。
+   標了 placeholder: true 的區塊是「預留內容」，等本人提供後再換掉。
+   ===================================================================== */
+window.CONTENT = {
+
+  // ---- 個人基本資料 ----
+  person: {
+    name: "Kelly Lin",
+    title: "Digital Marketing Specialist",
+    location: "Taipei, Taiwan",
+    linkedin: "linkedin.com/in/kellylin-demo",
+    gateLine: "Open to relocate: Amsterdam, Dublin", // 入口大門招牌下面那一行
+    summary: "B2B SaaS marketer with 4 years of experience running paid acquisition, lifecycle email and content programs for APAC markets. Built the marketing automation stack from zero at a 60-person SaaS company. Comfortable owning a pipeline number, not just a traffic number."
+  },
+
+  // ---- 介面文字（按鈕、提示） ----
+  ui: {
+    siteName: "Portfolio Island",
+    loading: "Building the island…",
+    loadFailedTitle: "The 3D island couldn't load here",
+    loadFailedText: "It needs WebGL and an internet connection. Everything is still readable in the Classic view.",
+    openClassic: "Open Classic view",
+    retry: "Try again",
+    hintMouse: "Drag to look around · Scroll to zoom · Click a ride to open it",
+    hintTouch: "Drag to look around · Pinch to zoom · Tap a ride to open it",
+    night: "Night",
+    day: "Day",
+    pause: "Pause",
+    play: "Play",
+    classic: "Classic view",
+    music: "Music",
+    musicOn: "Music on",
+    musicFailed: "The music file couldn't be played.",
+    musicCredit: "Music made with Suno.",
+    world: "3D view",
+    close: "Close",
+    copyLink: "Copy link to this section",
+    linkCopied: "Link copied",
+    prev: "Previous",
+    next: "Next",
+    rides: "Rides",
+    fireworksHint: "Tap the sky for fireworks 🎆",
+    fireworksNeedNight: "Fireworks come out at night. Try the Night button 🌙",
+    placeholderBadge: "Placeholder · content coming soon",
+    role: "Role",
+    basedIn: "Based in",
+    linkedin: "LinkedIn",
+    explore: "Explore the island",
+    lessonLabel: "What I learned"
+  },
+
+  // ---- 設施順序（底部導覽列、浮動標籤都照這個順序）----
+  order: ["timeline", "projects", "places", "skills", "webinar", "lessons"],
+
+  sections: {
+
+    // 🎟️ 入口大門：自我介紹（點大門或左上角名字打開）
+    about: {
+      emoji: "🎟️",
+      label: "About",
+      ride: "Entrance Gate",
+      title: "Welcome to the island"
+    },
+
+    // 🎡 摩天輪：職涯時間軸（最新的在最上面）
+    timeline: {
+      emoji: "🎡",
+      label: "Timeline",
+      ride: "Ferris Wheel",
+      title: "Career timeline",
+      intro: "Every stop so far, newest first.",
+      items: [
+        {
+          period: "2023.03 to present",
+          role: "Digital Marketing Specialist",
+          org: "CloudDesk Software",
+          place: "Taipei",
+          note: "B2B SaaS, 60 people",
+          highlights: [
+            "Own paid search and paid social for APAC (Google Ads, LinkedIn Ads); annual budget USD 240K",
+            "Built HubSpot lifecycle programs from scratch: 14 workflows, MQL-to-SQL conversion up 38% in 12 months",
+            "Launched a monthly webinar series; 1,900 registrations in the first year, 22% became sales-accepted leads",
+            "Rebuilt the pricing page with the product team; trial-to-paid conversion up 11%"
+          ]
+        },
+        {
+          period: "2021.07 to 2023.02",
+          role: "Marketing Executive",
+          org: "Brightline Media",
+          place: "Taipei",
+          note: "digital marketing agency",
+          highlights: [
+            "Managed SEO and content for 6 B2B clients; average organic traffic up 65% year on year",
+            "Ran A/B tests on landing pages (Webflow, Google Optimize); best test lifted form fills 27%",
+            "Produced monthly performance reports and presented them to client marketing directors"
+          ]
+        },
+        {
+          period: "2021",
+          role: "BA in Communications",
+          org: "National Chengchi University",
+          place: "Taipei",
+          note: "",
+          highlights: []
+        }
+      ]
+    },
+
+    // 🎢 雲霄飛車：專案與成果（每一張卡都有數字，數字照履歷原文）
+    projects: {
+      emoji: "🎢",
+      label: "Projects",
+      ride: "Roller Coaster",
+      title: "Projects & results",
+      intro: "The work, with the numbers attached.",
+      items: [
+        {
+          title: "APAC paid search & paid social",
+          org: "CloudDesk Software",
+          stats: [{ value: "USD 240K", label: "annual budget" }],
+          text: "Own paid search and paid social for APAC (Google Ads, LinkedIn Ads); annual budget USD 240K",
+          tags: ["Google Ads", "LinkedIn Ads"]
+        },
+        {
+          title: "HubSpot lifecycle programs",
+          org: "CloudDesk Software",
+          stats: [
+            { value: "14", label: "workflows" },
+            { value: "38%", label: "MQL-to-SQL conversion up, in 12 months" }
+          ],
+          text: "Built HubSpot lifecycle programs from scratch: 14 workflows, MQL-to-SQL conversion up 38% in 12 months",
+          tags: ["HubSpot"]
+        },
+        {
+          title: "Monthly webinar series",
+          org: "CloudDesk Software",
+          stats: [
+            { value: "1,900", label: "registrations in the first year" },
+            { value: "22%", label: "became sales-accepted leads" }
+          ],
+          text: "Launched a monthly webinar series; 1,900 registrations in the first year, 22% became sales-accepted leads",
+          tags: []
+        },
+        {
+          title: "Pricing page rebuild",
+          org: "CloudDesk Software",
+          stats: [{ value: "11%", label: "trial-to-paid conversion up" }],
+          text: "Rebuilt the pricing page with the product team; trial-to-paid conversion up 11%",
+          tags: []
+        },
+        {
+          title: "SEO & content for B2B clients",
+          org: "Brightline Media",
+          stats: [
+            { value: "6", label: "B2B clients" },
+            { value: "65%", label: "average organic traffic up, year on year" }
+          ],
+          text: "Managed SEO and content for 6 B2B clients; average organic traffic up 65% year on year",
+          tags: []
+        },
+        {
+          title: "Landing page A/B tests",
+          org: "Brightline Media",
+          stats: [{ value: "27%", label: "best test lifted form fills" }],
+          text: "Ran A/B tests on landing pages (Webflow, Google Optimize); best test lifted form fills 27%",
+          tags: ["Webflow", "Google Optimize"]
+        }
+      ]
+    },
+
+    // 🌍 地球儀：城市（每個城市在地球儀上插一根紅色圖釘；lat/lon 是城市座標）
+    places: {
+      emoji: "🌍",
+      label: "Places",
+      ride: "Globe",
+      title: "Places",
+      intro: "Each red pin on the globe is one of these cities.",
+      groups: [
+        {
+          label: "Lived and worked",
+          cities: [{ name: "Taipei", country: "Taiwan", lat: 25.03, lon: 121.56 }]
+        },
+        {
+          label: "Target markets",
+          cities: [
+            { name: "Amsterdam", country: "Netherlands", lat: 52.37, lon: 4.9 },
+            { name: "Dublin", country: "Ireland", lat: 53.35, lon: -6.26 }
+          ]
+        }
+      ]
+    },
+
+    // 🌸 花園：技能與語言（程度用履歷原文，不另外打分數）
+    skills: {
+      emoji: "🌸",
+      label: "Skills",
+      ride: "Garden",
+      title: "Skills & languages",
+      intro: "",
+      toolsTitle: "Tools & skills",
+      tools: ["HubSpot", "Google Ads", "LinkedIn Ads", "GA4", "Looker Studio", "Webflow", "SEO (Ahrefs)", "SQL (basic)", "Figma (basic)"],
+      languagesTitle: "Languages",
+      languages: [
+        { name: "Mandarin", level: "native" },
+        { name: "English", level: "IELTS 7.5" },
+        { name: "Dutch", level: "A1, in progress" }
+      ]
+    },
+
+    // 🎪 帳篷：Webinar Stage — 履歷裡 CloudDesk 的每月 webinar 系列（數字照抄履歷原文）
+    webinar: {
+      emoji: "🎪",
+      label: "Webinars",
+      ride: "Webinar Stage",
+      title: "Monthly webinar series",
+      intro: "",
+      items: [
+        {
+          title: "",
+          org: "CloudDesk Software",
+          stats: [
+            { value: "1,900", label: "registrations in the first year" },
+            { value: "22%", label: "became sales-accepted leads" }
+          ],
+          text: "Launched a monthly webinar series; 1,900 registrations in the first year, 22% became sales-accepted leads",
+          tags: []
+        }
+      ]
+    },
+
+    // 🪦 墓園：Lessons — 失敗或受挫的經驗，跟學到的一句話（內容由本人提供，不在履歷裡）
+    lessons: {
+      emoji: "🪦",
+      label: "Lessons",
+      ride: "Lessons",
+      title: "Lessons learned",
+      intro: "",
+      items: [
+        {
+          title: "Paid ads budget cut in half (2024 Q2)",
+          text: "In 2024 Q2 the paid ads budget was cut in half. Turned off low-performing keywords, focused on three high-intent topics, and added retargeting. SQLs dropped only 8%, and CAC actually went down.",
+          lesson: "A bigger budget isn't always better."
+        }
+      ]
+    }
+  }
+};
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio Island</title>
+<meta name="description" content="An interactive 3D portfolio: a floating low-poly carnival island where each ride opens one part of the résumé.">
+<meta name="theme-color" content="#8FD0F0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap">
+<style>
+/* =====================================================================
+   樣式：嘉年華配色、圓角、粗體
+   ===================================================================== */
+*{box-sizing:border-box}
+:root{
+  --brick:#D9603B;--brick-d:#B04528;--mustard:#E8B23A;--mustard-l:#F7D98A;
+  --cream:#FFF5E1;--cream-d:#F5E3BF;--navy:#1E3557;--navy-l:#2F4E7A;
+  --grass:#6BAA4F;--sky:#8FD0F0;--dirt:#9C6A45;
+  --ink:#1E3557;--muted:#4F607C;--card:#FFFDF7;
+  --r-lg:24px;--r-md:16px;--r-sm:12px;
+  --f-head:"Fredoka",ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --pop:0 4px 0 var(--navy);
+  --panel-w:min(440px,calc(100vw - 32px));
+}
+html,body{margin:0;height:100%;background:var(--sky);color:var(--ink);font-family:var(--f-body);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{overflow:hidden;overscroll-behavior:none}
+button{font:inherit;color:inherit}
+a{color:var(--brick-d);font-weight:800;text-underline-offset:2px}
+:focus-visible{outline:3px solid var(--brick);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- 3D 畫布 ---- */
+#scene{position:fixed;inset:0;z-index:0}
+#scene canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+
+/* ---- 左上角名牌 ---- */
+.brand{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 590px);padding:7px 16px 7px 7px;background:var(--cream);border:3px solid var(--navy);border-radius:999px;box-shadow:var(--pop);cursor:pointer;text-align:left;transition:transform .08s,box-shadow .08s,background .2s}
+.brand:hover{background:var(--mustard-l)}
+.brand:active{transform:translateY(3px);box-shadow:0 1px 0 var(--navy)}
+.brand .badge{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--brick);color:var(--cream);font:700 15px/1 var(--f-head);border:2px solid var(--navy)}
+.brand .txt{min-width:0}
+.brand .nm{display:block;font:700 18px/1.1 var(--f-head);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .tt{display:block;margin-top:2px;font:800 12px/1.2 var(--f-body);color:var(--brick-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- 右上角工具列（永遠在最上層） ---- */
+.toolbar{position:fixed;top:16px;right:16px;z-index:60;display:flex;gap:8px}
+#btn-music .ic{font:700 20px/1 var(--f-head)}
+#btn-music[aria-pressed="true"]{background:var(--mustard)}
+.panel-credit{flex:none;margin:0;padding:0 14px 10px;color:var(--muted);font:700 11px/1.3 var(--f-body);text-align:center}
+.tbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:46px;padding:0 16px;background:var(--cream);color:var(--navy);border:3px solid var(--navy);border-radius:999px;box-shadow:var(--pop);font:600 15px/1 var(--f-head);cursor:pointer;white-space:nowrap;transition:transform .08s,box-shadow .08s,background .2s}
+.tbtn:hover{background:var(--mustard-l)}
+.tbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--navy)}
+.tbtn .ic{display:grid;place-items:center}
+.tbtn svg{width:20px;height:20px}
+@media (max-width:900px){
+  .toolbar .tbtn{width:46px;padding:0}
+  .toolbar .tbtn .tx{display:none}
+  .brand{max-width:calc(100vw - 264px)}
+}
+body.world-failed #btn-night,body.world-failed #btn-pause{display:none}
+
+/* ---- 設施上方的浮動標籤 ---- */
+.labels{position:fixed;inset:0;z-index:10;pointer-events:none;overflow:hidden}
+.flabel{position:absolute;left:0;top:0;display:flex;align-items:center;gap:6px;padding:6px 12px 6px 9px;background:var(--cream);color:var(--navy);border:3px solid var(--navy);border-radius:14px;box-shadow:0 3px 0 var(--navy);font:600 15px/1 var(--f-head);white-space:nowrap;cursor:pointer;pointer-events:auto;will-change:transform;transition:background .2s}
+.flabel .e{font-size:17px;line-height:1}
+.flabel::after{content:"";position:absolute;left:50%;top:calc(100% + 3px);width:3px;height:var(--stem,7px);margin-left:-1.5px;border-radius:2px;background:var(--navy);opacity:.85}
+.flabel:hover,.flabel.hover{background:var(--mustard-l)}
+.flabel.active{background:var(--mustard)}
+
+/* ---- 底部導覽列 ---- */
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:20;display:flex;gap:4px;max-width:calc(100vw - 24px);padding:6px;overflow-x:auto;background:var(--navy);border-radius:22px;box-shadow:0 5px 0 rgba(15,30,55,.35);transform:translateX(-50%);transition:transform .4s cubic-bezier(.2,.8,.2,1);scrollbar-width:none}
+.dock::-webkit-scrollbar{display:none}
+.dock button{flex:none;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:70px;padding:7px 10px 6px;background:transparent;border:0;border-radius:16px;color:var(--cream);font:600 13px/1 var(--f-head);cursor:pointer;transition:background .2s}
+.dock button .e{font-size:22px;line-height:1}
+.dock button:hover{background:var(--navy-l)}
+.dock button[aria-current="true"]{background:var(--mustard);color:var(--navy)}
+.dock button:focus-visible{outline-color:var(--mustard);outline-offset:-3px}
+@media (min-width:721px){body.panel-open .dock{transform:translateX(calc(-50% - (var(--panel-w) + 16px) / 2))}}
+@media (max-width:720px){.dock{left:12px;right:12px;gap:2px;transform:none}.dock button{flex:1 1 0;min-width:0;padding:6px 1px 5px;font-size:11px}.dock button .e{font-size:20px}}
+@media (max-width:720px){.flabel{padding:4px 9px 4px 7px;font-size:13px;border-width:2.5px;border-radius:12px}.flabel .e{font-size:14px}}
+
+/* ---- 側邊面板（手機改成底部彈出） ---- */
+.panel{position:fixed;top:82px;right:16px;bottom:16px;z-index:30;width:var(--panel-w);display:flex;flex-direction:column;overflow:hidden;background:var(--cream);border:3px solid var(--navy);border-radius:var(--r-lg);box-shadow:0 6px 0 var(--navy);transform:translateX(calc(100% + 40px));visibility:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),visibility 0s linear .4s}
+.panel.open{transform:none;visibility:visible;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.panel[data-accent=brick]{--accent:var(--brick-d);--on-accent:var(--cream)}
+.panel[data-accent=mustard]{--accent:var(--mustard);--on-accent:var(--navy)}
+.panel[data-accent=sky]{--accent:var(--sky);--on-accent:var(--navy)}
+.panel[data-accent=grass]{--accent:var(--grass);--on-accent:var(--navy)}
+.panel[data-accent=navy]{--accent:var(--navy);--on-accent:var(--cream)}
+.panel-head{position:relative;flex:none;padding:16px 108px 14px 18px;background:var(--accent);color:var(--on-accent);border-bottom:3px solid var(--navy)}
+.panel-kicker{margin:0 0 4px;font:800 12px/1.2 var(--f-body);letter-spacing:.08em;text-transform:uppercase;opacity:.92}
+.panel-title{margin:0;font:700 25px/1.15 var(--f-head);outline:none}
+.panel-actions{position:absolute;top:12px;right:12px;display:flex;gap:6px}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;padding:0;background:var(--cream);color:var(--navy);border:3px solid var(--navy);border-radius:50%;box-shadow:0 3px 0 var(--navy);cursor:pointer;transition:transform .08s,box-shadow .08s,background .2s}
+.icon-btn:hover{background:var(--mustard-l)}
+.icon-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--navy)}
+.icon-btn svg{width:18px;height:18px}
+.panel-body{flex:1;min-height:0;overflow:auto;padding:18px 18px 10px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.panel-foot{flex:none;display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border-top:2px dashed rgba(30,53,87,.25)}
+.foot-btn{display:inline-flex;align-items:center;gap:6px;max-width:50%;padding:8px 12px;background:transparent;border:2px solid var(--navy);border-radius:999px;font:600 14px/1 var(--f-head);cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.foot-btn:hover{background:var(--mustard-l)}
+@media (max-width:720px){
+  .panel{top:auto;left:0;right:0;bottom:0;width:auto;max-height:min(66vh,620px);border-bottom:0;border-radius:24px 24px 0 0;box-shadow:0 -4px 0 rgba(30,53,87,.25);transform:translateY(105%)}
+  .panel.open{transform:none}
+  .panel-head{padding-top:20px}
+  .panel-head::before{content:"";position:absolute;top:7px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:3px;background:currentColor;opacity:.4}
+  .panel-title{font-size:22px}
+  .panel-foot{padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+}
+
+/* ---- 面板內容 ---- */
+.intro{margin:0 0 16px;color:var(--muted);font-weight:800}
+.lead{margin:0 0 18px;font-size:17px;line-height:1.55}
+.sub{margin:22px 0 10px;font:700 17px/1.2 var(--f-head)}
+.sub:first-child{margin-top:0}
+.muted{color:var(--muted);font-weight:700}
+.facts{display:grid;gap:8px;margin:0}
+.facts div{display:flex;gap:10px;padding:10px 12px;background:var(--card);border:2px solid var(--navy);border-radius:var(--r-sm)}
+.facts dt{flex:none;width:80px;font-weight:800;color:var(--brick-d)}
+.facts dd{margin:0;font-weight:700;overflow-wrap:anywhere}
+.ride-list{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.ride-link{width:100%;padding:10px 12px;background:var(--card);border:2px solid var(--navy);border-radius:var(--r-sm);font-size:15px;text-align:left;cursor:pointer}
+.ride-link:hover{background:var(--mustard-l)}
+.tl{position:relative;margin:0;padding:0 0 0 26px;list-style:none}
+.tl::before{content:"";position:absolute;left:8px;top:8px;bottom:12px;width:4px;border-radius:2px;background:repeating-linear-gradient(var(--navy) 0 8px,transparent 8px 14px)}
+.tl-item{position:relative;padding:0 0 22px 8px}
+.tl-dot{position:absolute;left:-26px;top:1px;width:20px;height:20px;border-radius:50%;background:var(--mustard);border:3px solid var(--navy)}
+.tl-item:first-child .tl-dot{background:var(--brick)}
+.tl-when{margin:0;font:800 13px/1.3 var(--f-body);color:var(--brick-d);letter-spacing:.03em}
+.tl-item h3{margin:3px 0 2px;font:700 19px/1.2 var(--f-head)}
+.tl-org{margin:0 0 8px;font-weight:800}
+.bullets{margin:0;padding-left:18px;line-height:1.5}
+.bullets li{margin:5px 0}
+.cards{display:grid;gap:14px}
+.card{padding:14px 14px 12px;background:var(--card);border:3px solid var(--navy);border-radius:var(--r-md);box-shadow:0 4px 0 var(--navy)}
+.card-org{margin:0;font:800 12px/1.2 var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--brick-d)}
+.card h3{margin:3px 0 10px;font:700 18px/1.2 var(--f-head)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.stat{flex:1 1 130px;padding:9px 11px;background:var(--cream);border:2px solid var(--navy);border-radius:var(--r-sm)}
+.stat .num{display:block;font:700 28px/1 var(--f-head);color:var(--brick-d)}
+.stat .lbl{display:block;margin-top:5px;font-size:13px;font-weight:800;line-height:1.3}
+.card-text{margin:0;font-size:14px;line-height:1.5;color:#33435E}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.tags span{padding:3px 10px;background:var(--sky);border:2px solid var(--navy);border-radius:999px;font:800 12px/1.4 var(--f-body)}
+.cities{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.cities li{display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--card);border:2px solid var(--navy);border-radius:var(--r-sm);font-size:16px}
+.pin{flex:none;width:16px;height:16px;margin-left:2px;border-radius:50% 50% 50% 0;background:#D62828;border:2px solid var(--navy);transform:rotate(-45deg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{padding:7px 13px;background:var(--card);border:2px solid var(--navy);border-radius:999px;font-size:14px;font-weight:800}
+.chips li::before{content:"✿";margin-right:6px;color:var(--brick)}
+.langs{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.langs li{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;background:var(--card);border:2px solid var(--navy);border-radius:var(--r-sm)}
+.langs span{color:var(--muted);font-weight:800;text-align:right}
+.ph-badge{display:inline-block;margin:0 0 14px;padding:6px 12px;border:2px dashed var(--brick-d);border-radius:999px;background:repeating-linear-gradient(-45deg,rgba(232,178,58,.22) 0 8px,transparent 8px 16px);color:var(--brick-d);font:800 12px/1.3 var(--f-body);letter-spacing:.06em;text-transform:uppercase}
+.ph-item{margin-bottom:10px;padding:12px 14px;background:var(--card);border:2px solid var(--navy);border-radius:var(--r-md)}
+.ph-item.is-ph{background:transparent;border-style:dashed;color:var(--muted)}
+.ph-item h3{margin:0 0 4px;font:700 17px/1.25 var(--f-head);color:var(--ink)}
+.ph-item p{margin:0;line-height:1.5}
+.ph-item .lesson{margin-top:10px;padding:8px 12px;background:var(--cream);border-left:4px solid var(--brick);border-radius:8px}
+
+/* ---- Classic view：一頁純文字 ---- */
+.classic{position:fixed;inset:0;z-index:50;overflow:auto;background:var(--cream);visibility:hidden;opacity:0;transition:opacity .25s,visibility 0s linear .25s;outline:none}
+body.classic-open .classic{visibility:visible;opacity:1;transition:opacity .25s}
+body.classic-open .labels,body.classic-open .dock,body.classic-open .brand,body.classic-open .hint{display:none}
+.classic-inner{max-width:720px;margin:0 auto;padding:96px 22px 80px;font-size:17px;line-height:1.6}
+.classic h1{margin:0 0 6px;font:700 40px/1.1 var(--f-head)}
+.classic .c-head p{margin:0;color:var(--muted);font-weight:800}
+.classic h2{margin:42px 0 12px;padding-bottom:6px;border-bottom:3px solid var(--navy);font:700 24px/1.2 var(--f-head)}
+.classic h3{margin:20px 0 2px;font:700 18px/1.3 var(--f-head)}
+.classic .c-meta{margin:0 0 6px;color:var(--muted);font-size:15px;font-weight:800}
+.classic ul{padding-left:20px}
+.classic li{margin:4px 0}
+.classic .ph-badge{margin-top:4px}
+
+/* ---- 載入畫面 ---- */
+.loader{position:fixed;inset:0;z-index:45;display:grid;place-items:center;padding:24px;background:linear-gradient(#8FD0F0,#D5EEF8 60%,#FFF5E1);transition:opacity .6s}
+.loader.done{opacity:0;pointer-events:none}
+.loader-card{max-width:420px;text-align:center}
+.loader-island{position:relative;width:130px;height:70px;margin:0 auto 20px;animation:bob 2.4s ease-in-out infinite}
+.loader-island::before{content:"";position:absolute;inset:16px 22px 0;background:var(--dirt);clip-path:polygon(0 0,100% 0,52% 100%)}
+.loader-island::after{content:"";position:absolute;left:0;right:0;top:4px;height:26px;border-radius:50%;background:var(--grass);border:3px solid var(--navy)}
+.loader p{margin:0;font:600 19px/1.3 var(--f-head)}
+.loader .fail{display:none}
+.loader.failed .fail{display:block}
+.loader.failed .ok{display:none}
+.loader .fail-text{margin:10px 0 18px;font:700 16px/1.5 var(--f-body)}
+.fail-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+@keyframes bob{50%{transform:translateY(-9px)}}
+
+/* ---- 操作提示、通知 ---- */
+.hint,.toast{position:fixed;left:50%;bottom:calc(104px + env(safe-area-inset-bottom));z-index:25;max-width:calc(100vw - 32px);padding:9px 16px;border-radius:999px;font:800 14px/1.35 var(--f-body);text-align:center;transform:translateX(-50%);opacity:0;pointer-events:none;transition:opacity .4s}
+.hint{background:rgba(30,53,87,.9);color:var(--cream)}
+.toast{z-index:65;background:var(--mustard);color:var(--navy);border:3px solid var(--navy);box-shadow:var(--pop)}
+.hint.show,.toast.show{opacity:1}
+@media (max-width:720px){.hint,.toast{bottom:calc(92px + env(safe-area-inset-bottom));font-size:13px}}
+body.panel-open .hint{opacity:0}
+
+noscript p{position:fixed;inset:auto 16px 16px;z-index:99;margin:0;padding:12px 16px;background:var(--cream);border:3px solid var(--navy);border-radius:16px;font-weight:800}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+@media print{
+  #scene,.labels,.brand,.toolbar,.dock,.panel,.loader,.hint,.toast{display:none!important}
+  html,body{height:auto;overflow:visible;background:#fff}
+  .classic{position:static;visibility:visible;opacity:1;overflow:visible}
+  .classic-inner{padding-top:0}
+}
+</style>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+
+<div id="scene" aria-hidden="true"></div>
+<div class="labels" id="labels"></div>
+
+<button class="brand" id="brand" type="button">
+  <span class="badge" id="brand-badge" aria-hidden="true"></span>
+  <span class="txt"><span class="nm" id="brand-name"></span><span class="tt" id="brand-title"></span></span>
+</button>
+
+<div class="toolbar" role="toolbar" aria-label="View options">
+  <button class="tbtn" id="btn-night" type="button"></button>
+  <button class="tbtn" id="btn-pause" type="button"></button>
+  <button class="tbtn" id="btn-classic" type="button"></button>
+  <button class="tbtn" id="btn-music" type="button" aria-pressed="false"></button>
+</div>
+
+<nav class="dock" id="dock"></nav>
+<p class="hint" id="hint" aria-hidden="true"></p>
+
+<aside class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="panel-title" aria-hidden="true" data-accent="mustard">
+  <header class="panel-head" id="panel-head">
+    <p class="panel-kicker" id="panel-kicker"></p>
+    <h2 class="panel-title" id="panel-title" tabindex="-1"></h2>
+    <div class="panel-actions">
+      <button class="icon-btn" id="btn-copy" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-close" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="panel-body" id="panel-body"></div>
+  <footer class="panel-foot">
+    <button class="foot-btn" id="btn-prev" type="button"></button>
+    <button class="foot-btn" id="btn-next" type="button"></button>
+  </footer>
+  <p class="panel-credit" id="panel-credit"></p>
+</aside>
+
+<audio id="music" src="music.mp3" loop preload="none"></audio>
+
+<main class="classic" id="classic" aria-hidden="true" tabindex="-1">
+  <div class="classic-inner" id="classic-inner"></div>
+</main>
+
+<div class="loader" id="loader">
+  <div class="loader-card">
+    <div class="loader-island" aria-hidden="true"></div>
+    <p class="ok" id="loader-text"></p>
+    <div class="fail">
+      <p id="fail-title"></p>
+      <p class="fail-text" id="fail-text"></p>
+      <div class="fail-actions">
+        <button class="tbtn" type="button" data-act="classic" id="fail-classic"></button>
+        <button class="tbtn" type="button" data-act="retry" id="fail-retry"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<noscript><p>This portfolio needs JavaScript to run.</p></noscript>
+
+<script>
+/* =====================================================================
+   UI：面板、導覽列、標籤、Classic view、網址錨點、工具列。
+   這段不依賴 three.js，所以 3D 載不起來時 Classic view 一樣能用。
+   ===================================================================== */
+(function () {
+  'use strict';
+
+  const C = window.CONTENT;
+  const S = C.sections;
+  const U = C.ui;
+  const KEYS = ['about'].concat(C.order).filter(function (k) { return S[k]; });
+  const $ = function (id) { return document.getElementById(id); };
+  const esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+    });
+  };
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = matchMedia('(pointer: coarse)').matches;
+  const mobile = matchMedia('(max-width: 720px)');
+
+  // 每個區塊面板標題列的顏色
+  const ACCENT = { about: 'mustard', timeline: 'brick', projects: 'mustard', places: 'sky', skills: 'grass', webinar: 'brick', lessons: 'navy' };
+
+  const ICON = {
+    moon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>',
+    sun: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4.6"/><g stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 2.2v2.6M12 19.2v2.6M2.2 12h2.6M19.2 12h2.6M5 5l1.8 1.8M17.2 17.2L19 19M5 19l1.8-1.8M17.2 6.8L19 5"/></g></svg>',
+    pause: '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4.2" height="15" rx="1.4"/><rect x="13.8" y="4.5" width="4.2" height="15" rx="1.4"/></svg>',
+    play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 4.8v14.4a1 1 0 0 0 1.5.9l11-7.2a1 1 0 0 0 0-1.7L9 4a1 1 0 0 0-1.5.8z"/></svg>',
+    doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.8h8.2l4.3 4.3v14.1H6z"/><path d="M9.2 11.5h6M9.2 15h6M9.2 18.4h3.6"/></svg>',
+    cube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M12 2.6l8.4 4.8v9.2L12 21.4l-8.4-4.8V7.4z"/><path d="M3.8 7.5L12 12.2l8.2-4.7M12 12.2v9"/></svg>'
+  };
+
+  const els = {
+    brand: $('brand'), dock: $('dock'), labels: $('labels'), hint: $('hint'), toast: $('toast'),
+    panel: $('panel'), head: $('panel-head'), kicker: $('panel-kicker'), title: $('panel-title'), body: $('panel-body'),
+    prev: $('btn-prev'), next: $('btn-next'), copy: $('btn-copy'), close: $('btn-close'),
+    classic: $('classic'), classicInner: $('classic-inner'), loader: $('loader'),
+    btnNight: $('btn-night'), btnPause: $('btn-pause'), btnClassic: $('btn-classic'),
+    btnMusic: $('btn-music'), music: $('music')
+  };
+
+  const state = { current: null, classic: false, night: false, paused: reduced, ready: false, failed: false, lastFocus: null, classicBuilt: false, nightHinted: false };
+  const labelEls = {};
+
+  /* ---------- 小工具 ---------- */
+  function world() { return state.ready ? window.World : null; }
+
+  function setHash(h) {
+    // 只改網址錨點，不新增歷史紀錄
+    try { history.replaceState(null, '', h ? '#' + h : location.pathname + location.search); }
+    catch (e) { if (h) location.hash = h; }
+  }
+
+  function linkedinLink() {
+    const raw = C.person.linkedin;
+    if (!raw) return '';
+    const href = /^https?:\/\//i.test(raw) ? raw : 'https://' + raw;
+    return '<a href="' + esc(href) + '" target="_blank" rel="noopener">' + esc(raw.replace(/^https?:\/\//i, '')) + '</a>';
+  }
+
+  function intro(s) { return s.intro ? '<p class="intro">' + esc(s.intro) + '</p>' : ''; }
+  function badge(s) { return s.placeholder ? '<p class="ph-badge">' + esc(U.placeholderBadge) + '</p>' : ''; }
+
+  /* ---------- 每個區塊在面板裡長什麼樣子 ---------- */
+  const RENDER = {
+    about: function () {
+      const p = C.person;
+      return '<p class="lead">' + esc(p.summary) + '</p>' +
+        '<dl class="facts">' +
+          '<div><dt>' + esc(U.role) + '</dt><dd>' + esc(p.title) + '</dd></div>' +
+          '<div><dt>' + esc(U.basedIn) + '</dt><dd>' + esc(p.location) + '</dd></div>' +
+          (p.linkedin ? '<div><dt>' + esc(U.linkedin) + '</dt><dd>' + linkedinLink() + '</dd></div>' : '') +
+        '</dl>' +
+        '<h3 class="sub">' + esc(U.explore) + '</h3>' +
+        '<ul class="ride-list">' + C.order.map(function (k) {
+          return '<li><button type="button" class="ride-link" data-open="' + k + '"><span aria-hidden="true">' + esc(S[k].emoji) + '</span> <b>' + esc(S[k].label) + '</b> <span class="muted">· ' + esc(S[k].ride) + '</span></button></li>';
+        }).join('') + '</ul>';
+    },
+
+    timeline: function (s) {
+      return intro(s) + '<ol class="tl">' + s.items.map(function (it) {
+        return '<li class="tl-item"><span class="tl-dot" aria-hidden="true"></span>' +
+          '<p class="tl-when">' + esc(it.period) + '</p>' +
+          '<h3>' + esc(it.role) + '</h3>' +
+          '<p class="tl-org">' + esc(it.org) + (it.place ? ' · ' + esc(it.place) : '') + (it.note ? ' · <span class="muted">' + esc(it.note) + '</span>' : '') + '</p>' +
+          (it.highlights && it.highlights.length ? '<ul class="bullets">' + it.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' : '') +
+          '</li>';
+      }).join('') + '</ol>';
+    },
+
+    projects: function (s) {
+      return intro(s) + '<div class="cards">' + s.items.map(function (it) {
+        return '<article class="card">' +
+          '<p class="card-org">' + esc(it.org) + '</p>' +
+          (it.title ? '<h3>' + esc(it.title) + '</h3>' : '') +
+          '<div class="stats">' + it.stats.map(function (st) {
+            return '<div class="stat"><span class="num">' + esc(st.value) + '</span><span class="lbl">' + esc(st.label) + '</span></div>';
+          }).join('') + '</div>' +
+          '<p class="card-text">' + esc(it.text) + '</p>' +
+          (it.tags && it.tags.length ? '<p class="tags">' + it.tags.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</p>' : '') +
+          '</article>';
+      }).join('') + '</div>';
+    },
+
+    places: function (s) {
+      return intro(s) + s.groups.map(function (g) {
+        return '<h3 class="sub">' + esc(g.label) + '</h3><ul class="cities">' + g.cities.map(function (c) {
+          return '<li><span class="pin" aria-hidden="true"></span><span><b>' + esc(c.name) + '</b>' + (c.country ? ', ' + esc(c.country) : '') + '</span></li>';
+        }).join('') + '</ul>';
+      }).join('');
+    },
+
+    skills: function (s) {
+      return intro(s) +
+        '<h3 class="sub">' + esc(s.toolsTitle) + '</h3><ul class="chips">' + s.tools.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
+        '<h3 class="sub">' + esc(s.languagesTitle) + '</h3><ul class="langs">' + s.languages.map(function (l) {
+          return '<li><b>' + esc(l.name) + '</b><span>' + esc(l.level) + '</span></li>';
+        }).join('') + '</ul>';
+    },
+
+    // 墓園用的清單型內容（預留內容時會加上虛線框跟標示）
+    list: function (s) {
+      return badge(s) + intro(s) + s.items.map(function (it) {
+        return '<article class="ph-item' + (s.placeholder ? ' is-ph' : '') + '"><h3>' + esc(it.title) + '</h3><p>' + esc(it.text) + '</p>' + (it.lesson ? '<p class="lesson"><b>' + esc(U.lessonLabel) + ':</b> ' + esc(it.lesson) + '</p>' : '') + '</article>';
+      }).join('');
+    }
+  };
+  RENDER.webinar = RENDER.projects; // 帳篷跟雲霄飛車用一樣的成果卡片
+  RENDER.lessons = RENDER.list;
+
+  /* ---------- 面板 ---------- */
+  function open(key) {
+    if (!S[key]) return;
+    if (state.classic) { scrollClassicTo(key); setHash(key); return; }
+    const s = S[key];
+    if (!els.panel.classList.contains('open')) state.lastFocus = document.activeElement;
+    state.current = key;
+
+    els.panel.dataset.accent = ACCENT[key] || 'mustard';
+    els.kicker.innerHTML = '<span aria-hidden="true">' + esc(s.emoji) + '</span> ' + esc(s.ride);
+    els.title.textContent = s.title;
+    els.body.innerHTML = (RENDER[key] || RENDER.list)(s);
+    els.body.scrollTop = 0;
+    paintFoot();
+
+    els.panel.classList.add('open');
+    els.panel.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('panel-open');
+    paintActive();
+    setHash(key);
+
+    const w = world();
+    if (w) w.focus(key, { instant: reduced });
+    requestAnimationFrame(syncInset);
+    els.title.focus({ preventScroll: true });
+  }
+
+  function close() {
+    if (!state.current) return;
+    state.current = null;
+    els.panel.classList.remove('open');
+    els.panel.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('panel-open');
+    paintActive();
+    setHash('');
+    syncInset();
+    const f = state.lastFocus;
+    if (f && f !== document.body && document.contains(f) && f.focus) f.focus({ preventScroll: true });
+  }
+
+  function toggle(key) { if (state.current === key && !state.classic) close(); else open(key); }
+
+  function paintFoot() {
+    const i = KEYS.indexOf(state.current);
+    const prev = KEYS[(i - 1 + KEYS.length) % KEYS.length];
+    const next = KEYS[(i + 1) % KEYS.length];
+    els.prev.innerHTML = '<span aria-hidden="true">← ' + esc(S[prev].emoji) + '</span> ' + esc(S[prev].label);
+    els.next.innerHTML = esc(S[next].label) + ' <span aria-hidden="true">' + esc(S[next].emoji) + ' →</span>';
+    els.prev.dataset.key = prev;
+    els.next.dataset.key = next;
+    els.prev.setAttribute('aria-label', U.prev + ': ' + S[prev].label);
+    els.next.setAttribute('aria-label', U.next + ': ' + S[next].label);
+  }
+
+  function paintActive() {
+    els.dock.querySelectorAll('button[data-key]').forEach(function (b) {
+      b.setAttribute('aria-current', String(b.dataset.key === state.current));
+    });
+    Object.keys(labelEls).forEach(function (k) { labelEls[k].classList.toggle('active', k === state.current); });
+  }
+
+  // 告訴 3D 場景面板擋住了多少畫面，讓鏡頭把設施放在剩下的空間正中間
+  function syncInset() {
+    const w = world();
+    if (!w) return;
+    if (!state.current || state.classic) { w.setInset(0, 0); return; }
+    if (mobile.matches) w.setInset(0, els.panel.offsetHeight);
+    else w.setInset(els.panel.offsetWidth + 16, 0);
+  }
+
+  /* ---------- Classic view（一頁純文字） ---------- */
+  function buildClassic() {
+    const p = C.person;
+    const CLASSIC = {
+      about: function () { return '<p>' + esc(p.summary) + '</p>'; },
+      timeline: function (s) {
+        return s.items.map(function (it) {
+          return '<h3>' + esc(it.role) + ' · ' + esc(it.org) + '</h3>' +
+            '<p class="c-meta">' + esc(it.period) + (it.place ? ' · ' + esc(it.place) : '') + (it.note ? ' · ' + esc(it.note) : '') + '</p>' +
+            (it.highlights && it.highlights.length ? '<ul>' + it.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' : '');
+        }).join('');
+      },
+      projects: function (s) {
+        return '<ul>' + s.items.map(function (it) {
+          return '<li>' + (it.title ? '<b>' + esc(it.title) + '</b> (' + esc(it.org) + '): ' : '<b>' + esc(it.org) + ':</b> ') + esc(it.text) + '</li>';
+        }).join('') + '</ul>';
+      },
+      places: function (s) {
+        return s.groups.map(function (g) {
+          return '<p><b>' + esc(g.label) + ':</b> ' + g.cities.map(function (c) { return esc(c.name) + (c.country ? ', ' + esc(c.country) : ''); }).join(' · ') + '</p>';
+        }).join('');
+      },
+      skills: function (s) {
+        return '<p><b>' + esc(s.toolsTitle) + ':</b> ' + s.tools.map(esc).join(', ') + '</p>' +
+          '<p><b>' + esc(s.languagesTitle) + ':</b> ' + s.languages.map(function (l) { return esc(l.name) + ' (' + esc(l.level) + ')'; }).join(', ') + '</p>';
+      },
+      list: function (s) {
+        return badge(s) + s.items.map(function (it) { return '<h3>' + esc(it.title) + '</h3><p>' + esc(it.text) + '</p>' + (it.lesson ? '<p><b>' + esc(U.lessonLabel) + ':</b> ' + esc(it.lesson) + '</p>' : ''); }).join('');
+      }
+    };
+    CLASSIC.webinar = CLASSIC.projects;
+    let html = '<header class="c-head"><h1>' + esc(p.name) + '</h1><p>' + esc(p.title) + ' · ' + esc(p.location) + (p.linkedin ? ' · ' + linkedinLink() : '') + '</p></header>';
+    KEYS.forEach(function (k) {
+      const fn = CLASSIC[k] || CLASSIC.list;
+      html += '<section id="classic-' + k + '" aria-labelledby="classic-h-' + k + '"><h2 id="classic-h-' + k + '">' + esc(S[k].label) + '</h2>' + fn(S[k]) + '</section>';
+    });
+    els.classicInner.innerHTML = html;
+    state.classicBuilt = true;
+  }
+
+  function scrollClassicTo(key) {
+    const t = document.getElementById('classic-' + key);
+    if (t) els.classic.scrollTo({ top: Math.max(0, t.offsetTop - 84), behavior: reduced ? 'auto' : 'smooth' });
+  }
+
+  function setClassic(on) {
+    state.classic = on;
+    if (on && !state.classicBuilt) buildClassic();
+    document.body.classList.toggle('classic-open', on);
+    els.classic.setAttribute('aria-hidden', String(!on));
+    paintToolbar();
+    if (on) {
+      els.classic.scrollTop = 0;
+      if (state.current) scrollClassicTo(state.current);
+      els.classic.focus({ preventScroll: true });
+      setHash('classic');
+    } else {
+      setHash(state.current || '');
+    }
+    syncInset();
+  }
+
+  /* ---------- 右上角工具列 ---------- */
+  function setBtn(b, icon, text) {
+    b.innerHTML = '<span class="ic" aria-hidden="true">' + icon + '</span><span class="tx">' + esc(text) + '</span>';
+    b.setAttribute('aria-label', text);
+    b.title = text;
+  }
+  function paintToolbar() {
+    setBtn(els.btnNight, state.night ? ICON.sun : ICON.moon, state.night ? U.day : U.night);
+    setBtn(els.btnPause, state.paused ? ICON.play : ICON.pause, state.paused ? U.play : U.pause);
+    setBtn(els.btnClassic, state.classic ? ICON.cube : ICON.doc, state.classic ? U.world : U.classic);
+  }
+
+  /* ---------- 通知、提示 ---------- */
+  let toastTimer = 0;
+  function toast(msg, ms) {
+    if (els.toast.classList.contains('show') && els.toast.textContent === msg) return;
+    els.toast.textContent = msg;
+    els.toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { els.toast.classList.remove('show'); }, ms || 3000);
+  }
+  let hintTimer = 0;
+  function showHint() {
+    els.hint.textContent = coarse ? U.hintTouch : U.hintMouse;
+    els.hint.classList.add('show');
+    hintTimer = setTimeout(hideHint, 9000);
+  }
+  function hideHint() { clearTimeout(hintTimer); els.hint.classList.remove('show'); }
+
+  function setHover(key) {
+    Object.keys(labelEls).forEach(function (k) { labelEls[k].classList.toggle('hover', k === key); });
+  }
+
+  /* ---------- 3D 載入成功／失敗 ---------- */
+  function worldReady() {
+    if (state.ready) return;
+    state.ready = true;
+    document.body.classList.remove('world-failed');
+    els.loader.classList.add('done');
+    setTimeout(function () { els.loader.hidden = true; }, 700);
+    window.World.setNight(state.night);
+    window.World.setPaused(state.paused);
+    if (state.current) window.World.focus(state.current, { instant: reduced });
+    syncInset();
+    if (!state.current && !state.classic) showHint();
+  }
+
+  function worldFailed() {
+    if (state.ready || state.failed) return;
+    state.failed = true;
+    els.loader.classList.add('failed');
+    document.body.classList.add('world-failed');
+    if (!state.classic) setClassic(true);
+  }
+
+  /* ---------- 網址錨點：#timeline、#projects…… ---------- */
+  function route() {
+    let h = '';
+    try { h = decodeURIComponent(location.hash.replace(/^#/, '')).toLowerCase(); } catch (e) { h = ''; }
+    if (!h) return;
+    if (h === 'classic') { if (!state.classic) setClassic(true); return; }
+    if (S[h]) open(h);
+  }
+
+  /* ---------- 建立畫面元素 ---------- */
+  document.title = C.person.name + ' · ' + U.siteName;
+  $('brand-badge').textContent = C.person.name.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').slice(0, 2).toUpperCase();
+  $('brand-name').textContent = C.person.name;
+  $('brand-title').textContent = C.person.title;
+  els.brand.setAttribute('aria-label', C.person.name + ', ' + C.person.title + ': ' + S.about.label);
+  $('loader-text').textContent = U.loading;
+  $('fail-title').textContent = U.loadFailedTitle;
+  $('fail-text').textContent = U.loadFailedText;
+  $('fail-classic').textContent = U.openClassic;
+  $('fail-retry').textContent = U.retry;
+  els.copy.setAttribute('aria-label', U.copyLink); els.copy.title = U.copyLink;
+  els.close.setAttribute('aria-label', U.close); els.close.title = U.close;
+  els.dock.setAttribute('aria-label', U.rides);
+
+  els.dock.innerHTML = KEYS.map(function (k) {
+    return '<button type="button" data-key="' + k + '" aria-current="false"><span class="e" aria-hidden="true">' + esc(S[k].emoji) + '</span><span>' + esc(S[k].label) + '</span></button>';
+  }).join('');
+
+  // 浮動標籤（位置由 3D 程式每一格更新；鍵盤使用者走底部導覽列）
+  C.order.forEach(function (k) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'flabel';
+    b.tabIndex = -1;
+    b.setAttribute('aria-hidden', 'true');
+    b.style.visibility = 'hidden';
+    b.innerHTML = '<span class="e">' + esc(S[k].emoji) + '</span>' + esc(S[k].label);
+    b.addEventListener('click', function () { open(k); });
+    els.labels.appendChild(b);
+    labelEls[k] = b;
+  });
+
+  paintToolbar();
+
+  /* ---------- 事件 ---------- */
+  els.dock.addEventListener('click', function (e) {
+    const b = e.target.closest('button[data-key]');
+    if (b) toggle(b.dataset.key);
+  });
+  els.brand.addEventListener('click', function () { open('about'); });
+  els.close.addEventListener('click', close);
+  els.prev.addEventListener('click', function () { open(els.prev.dataset.key); });
+  els.next.addEventListener('click', function () { open(els.next.dataset.key); });
+  els.copy.addEventListener('click', function () {
+    const url = location.href.split('#')[0] + '#' + state.current;
+    const done = function () { toast(U.linkCopied, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { toast(url, 6000); });
+    else toast(url, 6000);
+  });
+
+  els.btnNight.addEventListener('click', function () {
+    state.night = !state.night;
+    paintToolbar();
+    const w = world();
+    if (w) w.setNight(state.night);
+    if (state.night && !state.nightHinted && w) { state.nightHinted = true; toast(U.fireworksHint, 4000); }
+  });
+  els.btnPause.addEventListener('click', function () {
+    state.paused = !state.paused;
+    paintToolbar();
+    const w = world();
+    if (w) w.setPaused(state.paused);
+  });
+  els.btnClassic.addEventListener('click', function () { setClassic(!state.classic); });
+
+  /* ---------- 背景音樂：預設不播，使用者點了才播；按鈕狀態跟著音訊真正的狀態走 ---------- */
+  els.music.volume = 0.4;
+  function paintMusic() {
+    const on = !els.music.paused;
+    setBtn(els.btnMusic, '♪', on ? U.musicOn : U.music);
+    els.btnMusic.setAttribute('aria-pressed', String(on));
+  }
+  els.btnMusic.addEventListener('click', function () {
+    if (els.music.paused) {
+      const p = els.music.play();
+      if (p && p.catch) p.catch(function () { paintMusic(); toast(U.musicFailed, 3500); });
+    } else {
+      els.music.pause();
+    }
+  });
+  ['play', 'playing', 'pause', 'ended', 'error'].forEach(function (ev) { els.music.addEventListener(ev, paintMusic); });
+  $('panel-credit').textContent = U.musicCredit;
+  paintMusic();
+
+  document.addEventListener('click', function (e) {
+    const o = e.target.closest('[data-open]');
+    if (o) { open(o.dataset.open); return; }
+    const a = e.target.closest('[data-act]');
+    if (!a) return;
+    if (a.dataset.act === 'classic') setClassic(true);
+    if (a.dataset.act === 'retry') location.reload();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (state.current && !state.classic) close();
+    else if (state.classic) setClassic(false);
+  });
+
+  // 手機：在面板標題列往下滑可以關掉
+  let swipeY = null;
+  els.head.addEventListener('touchstart', function (e) { swipeY = e.touches[0].clientY; }, { passive: true });
+  els.head.addEventListener('touchmove', function (e) {
+    if (swipeY !== null && mobile.matches && e.touches[0].clientY - swipeY > 70) { swipeY = null; close(); }
+  }, { passive: true });
+
+  ['pointerdown', 'wheel', 'keydown'].forEach(function (ev) { window.addEventListener(ev, hideHint, { passive: true, once: true }); });
+  window.addEventListener('hashchange', route);
+  let rz = 0;
+  window.addEventListener('resize', function () { cancelAnimationFrame(rz); rz = requestAnimationFrame(syncInset); });
+  if (mobile.addEventListener) mobile.addEventListener('change', syncInset);
+
+  // 先檢查瀏覽器能不能跑 3D（three.js 需要 WebGL2）
+  const hasWebGL2 = (function () {
+    try {
+      const gl = document.createElement('canvas').getContext('webgl2');
+      if (!gl) return false;
+      const lose = gl.getExtension('WEBGL_lose_context');
+      if (lose) lose.loseContext();
+      return true;
+    } catch (e) { return false; }
+  })();
+  if (!hasWebGL2) {
+    worldFailed();
+  } else {
+    window.addEventListener('error', function () { if (!state.ready) worldFailed(); });
+    setTimeout(function () { if (!state.ready) worldFailed(); }, 25000);
+  }
+
+  window.UI = {
+    open: open, close: close, toast: toast, setHover: setHover,
+    worldReady: worldReady, worldFailed: worldFailed, labelEls: labelEls
+  };
+
+  route();
+})();
+</script>
+
+<script type="module" onerror="window.UI && window.UI.worldFailed()">
+/* =====================================================================
+   3D 世界：three.js 漂浮小島
+   ===================================================================== */
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+
+const CONTENT = window.CONTENT;
+const UI = window.UI;
+
+/* ---------------------------------------------------------------------
+   0. 共用小工具
+   --------------------------------------------------------------------- */
+const TAU = Math.PI * 2;
+const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
+const UP = V(0, 1, 0);
+const SMALL = Math.min(innerWidth, innerHeight) < 600;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const { lerp, clamp } = THREE.MathUtils;
+
+// 嘉年華配色
+const P = {
+  brick: 0xD9603B, brickDark: 0xA9472A, mustard: 0xE8B23A, cream: 0xFFF1D6,
+  navy: 0x1E3557, navyLight: 0x2F4E7A, grass: 0x86C163, grassDark: 0x5F9C48,
+  leaf: 0x4C9443, leafLight: 0x79B655, sky: 0x8FD0F0, water: 0x5DB8E6,
+  dirt: 0x9C6A45, soil: 0x6B4A33, rock: 0x7E6F68, rockDark: 0x5F5450,
+  path: 0xEBD3A0, stone: 0xB5B0A6, stoneDark: 0xC9BFAE, wood: 0x8A5A3B,
+  red: 0xD62828, pink: 0xF29BAE, lilac: 0xB497D6, sand: 0xF0DDB4, iron: 0x2E3247
+};
+
+// 固定種子的亂數：每次打開，樹和花都長在同樣的位置
+function makeRandom(seed) {
+  return () => {
+    seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const rand = makeRandom(20261009);
+const rr = (a, b) => a + (b - a) * rand();
+const pick = arr => arr[Math.floor(rand() * arr.length)];
+
+// 依座標算出固定的雜訊，讓岩石坑坑疤疤（接縫上重複的點算出一樣的值，不會裂開）
+function hash3(a, b, c, s) {
+  const n = Math.sin(a * 12.9898 + b * 78.233 + c * 37.719 + s * 91.17) * 43758.5453;
+  return n - Math.floor(n);
+}
+function jitter(geo, amount, filter, seed = 1) {
+  const pos = geo.attributes.position;
+  const v = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i);
+    if (filter && !filter(v)) continue;
+    const a = Math.round(v.x * 100), b = Math.round(v.y * 100), c = Math.round(v.z * 100);
+    pos.setXYZ(i,
+      v.x + (hash3(a, b, c, seed) - 0.5) * amount,
+      v.y + (hash3(b, c, a, seed + 7) - 0.5) * amount,
+      v.z + (hash3(c, a, b, seed + 13) - 0.5) * amount);
+  }
+  pos.needsUpdate = true;
+  geo.computeVertexNormals();
+}
+
+// 材質（同色共用，flatShading 做出低多邊形的面）
+const matCache = new Map();
+function mat(color, side = THREE.FrontSide) {
+  const key = color + ':' + side;
+  if (!matCache.has(key)) matCache.set(key, new THREE.MeshLambertMaterial({ color, side, flatShading: true }));
+  return matCache.get(key);
+}
+// 會發光的材質：白天 day、晚上 night 的亮度，每一格依日夜比例調整
+const glows = [];
+function glowMat(color, day, night, emissive = color) {
+  const m = new THREE.MeshLambertMaterial({ color, emissive, emissiveIntensity: day, flatShading: true });
+  glows.push({ m, day, night });
+  return m;
+}
+// 晚上才亮的點光源
+const pointLights = [];
+function addLight(parent, x, y, z, color, base, distance) {
+  const l = new THREE.PointLight(color, 0, distance, 2);
+  l.position.set(x, y, z);
+  parent.add(l);
+  pointLights.push({ light: l, base });
+  return l;
+}
+
+function add(parent, geo, material, x = 0, y = 0, z = 0) {
+  const m = new THREE.Mesh(geo, material);
+  m.position.set(x, y, z);
+  m.castShadow = true;
+  m.receiveShadow = true;
+  parent.add(m);
+  return m;
+}
+
+// 位置／旋轉／縮放 → 矩陣
+const _o = new THREE.Object3D();
+function xf(x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = sx, sz = sx) {
+  _o.position.set(x, y, z);
+  _o.rotation.set(rx, ry, rz);
+  _o.scale.set(sx, sy, sz);
+  _o.updateMatrix();
+  return _o.matrix.clone();
+}
+
+// 不會動的零件先收集起來，同材質合併成一個 mesh，手機上比較順
+class Batch {
+  constructor() { this.parts = new Map(); }
+  add(geo, material, matrix) {
+    const g = geo.index ? geo.toNonIndexed() : geo.clone();
+    if (matrix) g.applyMatrix4(matrix);
+    if (!this.parts.has(material)) this.parts.set(material, []);
+    this.parts.get(material).push(g);
+    return this;
+  }
+  // 兩點之間拉一根圓柱（支架、欄杆、樹枝）
+  beam(a, b, r, material, seg = 6, rTop = r, base) {
+    const d = new THREE.Vector3().subVectors(b, a);
+    const len = d.length();
+    const q = new THREE.Quaternion().setFromUnitVectors(UP, d.clone().normalize());
+    let m = new THREE.Matrix4().compose(a.clone().addScaledVector(d, 0.5), q, V(1, 1, 1));
+    if (base) m = base.clone().multiply(m);
+    return this.add(new THREE.CylinderGeometry(rTop, r, len, seg), material, m);
+  }
+  flush(parent, { cast = true, receive = true } = {}) {
+    const out = [];
+    for (const [material, geos] of this.parts) {
+      const mesh = new THREE.Mesh(mergeGeometries(geos, false), material);
+      geos.forEach(g => g.dispose());
+      mesh.castShadow = cast;
+      mesh.receiveShadow = receive;
+      parent.add(mesh);
+      out.push(mesh);
+    }
+    this.parts.clear();
+    return out;
+  }
+}
+
+// Canvas 畫的柔光貼圖（螢火蟲、煙火、薄霧）
+function makeRadialTexture(size, stops) {
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = size;
+  const c = cv.getContext('2d');
+  const g = c.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  stops.forEach(([o, col]) => g.addColorStop(o, col));
+  c.fillStyle = g;
+  c.fillRect(0, 0, size, size);
+  const t = new THREE.CanvasTexture(cv);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+const glowTex = makeRadialTexture(64, [[0, 'rgba(255,255,255,1)'], [0.22, 'rgba(255,255,255,0.8)'], [1, 'rgba(255,255,255,0)']]);
+const fogTex = makeRadialTexture(128, [[0, 'rgba(255,255,255,0.9)'], [0.45, 'rgba(255,255,255,0.4)'], [1, 'rgba(255,255,255,0)']]);
+
+// 每一格要跑的動畫（t：動畫時間，dt：這一格經過的秒數；暫停時 dt = 0、t 不動）
+const animators = [];
+const onFrame = fn => animators.push(fn);
+let night = 0, nightTarget = 0, paused = false, animT = 0;
+
+/* ---------------------------------------------------------------------
+   1. 渲染器、場景、相機、控制器、燈光
+   --------------------------------------------------------------------- */
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, SMALL ? 1.75 : 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFShadowMap;
+document.getElementById('scene').appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0xBDE5F6, 120, 360);
+
+const camera = new THREE.PerspectiveCamera(42, innerWidth / innerHeight, 0.5, 1400);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = 7;
+controls.maxDistance = 170;
+controls.maxPolarAngle = Math.PI * 0.47;
+controls.autoRotateSpeed = 0.6;
+controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
+
+const world = new THREE.Group(); // 整座島（會輕輕上下漂）
+scene.add(world);
+
+const hemi = new THREE.HemisphereLight(0xF3F8FF, 0xA27E57, 1.35);
+scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xFFF0D0, 2.5);
+sun.position.set(30, 50, 24);
+sun.castShadow = true;
+sun.shadow.mapSize.set(SMALL ? 1024 : 2048, SMALL ? 1024 : 2048);
+Object.assign(sun.shadow.camera, { left: -36, right: 36, top: 36, bottom: -36, near: 10, far: 140 });
+sun.shadow.bias = -0.0004;
+sun.shadow.normalBias = 0.04;
+scene.add(sun);
+
+const timer = new THREE.Timer();
+timer.connect(document);
+
+/* ---------------------------------------------------------------------
+   2. 天空：漸層天幕、星星、月亮、日夜配色
+   --------------------------------------------------------------------- */
+const skyU = { top: { value: new THREE.Color() }, mid: { value: new THREE.Color() }, bot: { value: new THREE.Color() } };
+const skyDome = new THREE.Mesh(
+  new THREE.SphereGeometry(600, 32, 16),
+  new THREE.ShaderMaterial({
+    uniforms: skyU,
+    side: THREE.BackSide,
+    depthWrite: false,
+    vertexShader: 'varying vec3 vP; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }',
+    fragmentShader: 'uniform vec3 top; uniform vec3 mid; uniform vec3 bot; varying vec3 vP;' +
+      'void main(){ float h = normalize(vP).y; vec3 c = mix(bot, mid, smoothstep(-0.75, 0.0, h)); c = mix(c, top, smoothstep(0.0, 0.7, h)); gl_FragColor = vec4(c, 1.0);\n' +
+      '#include <colorspace_fragment>\n}'
+  })
+);
+skyDome.renderOrder = -10;
+scene.add(skyDome);
+
+// 星星：整個天球都有，因為小島是漂在空中的，往下看也是天空
+const starPos = new Float32Array(1100 * 3);
+for (let i = 0; i < 1100; i++) {
+  const u = rr(-0.9, 1), th = rand() * TAU, s = Math.sqrt(1 - u * u);
+  starPos.set([Math.cos(th) * s * 520, u * 520, Math.sin(th) * s * 520], i * 3);
+}
+const starGeo = new THREE.BufferGeometry();
+starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+const starMat = new THREE.PointsMaterial({ color: 0xFFF6DA, size: 2.2, sizeAttenuation: false, transparent: true, opacity: 0, depthWrite: false, fog: false });
+const stars = new THREE.Points(starGeo, starMat);
+stars.visible = false;
+scene.add(stars);
+
+const moonMat = new THREE.MeshBasicMaterial({ color: 0xFFF4D6, transparent: true, opacity: 0, fog: false });
+const moon = new THREE.Mesh(new THREE.IcosahedronGeometry(12, 1), moonMat);
+moon.position.set(-150, -40, -330);
+moon.visible = false;
+scene.add(moon);
+
+const cloudMats = []; // 每朵雲一個材質，擋到視線時可以各自淡出
+
+const SKY = {
+  day: {
+    top: new THREE.Color(0x4FA8E0), mid: new THREE.Color(0xBDE5F6), bot: new THREE.Color(0xFBEFD8),
+    hemiSky: new THREE.Color(0xF3F8FF), hemiGround: new THREE.Color(0xA27E57), hemi: 1.35,
+    sun: 2.5, sunColor: new THREE.Color(0xFFF0D0), cloud: new THREE.Color(0xFFFFFF)
+  },
+  night: {
+    top: new THREE.Color(0x040A1A), mid: new THREE.Color(0x15244A), bot: new THREE.Color(0x2B2650),
+    hemiSky: new THREE.Color(0x7489C9), hemiGround: new THREE.Color(0x2A2238), hemi: 0.75,
+    sun: 0.55, sunColor: new THREE.Color(0x9FB6FF), cloud: new THREE.Color(0x4A5878)
+  }
+};
+function applyNight() {
+  const n = night, D = SKY.day, N = SKY.night;
+  skyU.top.value.lerpColors(D.top, N.top, n);
+  skyU.mid.value.lerpColors(D.mid, N.mid, n);
+  skyU.bot.value.lerpColors(D.bot, N.bot, n);
+  scene.fog.color.copy(skyU.mid.value);
+  hemi.color.lerpColors(D.hemiSky, N.hemiSky, n);
+  hemi.groundColor.lerpColors(D.hemiGround, N.hemiGround, n);
+  hemi.intensity = lerp(D.hemi, N.hemi, n);
+  sun.color.lerpColors(D.sunColor, N.sunColor, n);
+  sun.intensity = lerp(D.sun, N.sun, n);
+  for (const m of cloudMats) m.color.lerpColors(D.cloud, N.cloud, n);
+  starMat.opacity = clamp((n - 0.35) / 0.65, 0, 1);
+  stars.visible = n > 0.36;
+  moonMat.opacity = n;
+  moon.visible = n > 0.01;
+  for (const p of pointLights) p.light.intensity = p.base * n;
+}
+
+/* ---------------------------------------------------------------------
+   3. 版面配置：每個設施的位置、朝向、標籤高度、鏡頭要飛去的位置
+      （x, z：島上位置；yaw：設施正面朝向；pad：地基半徑；clear：樹木要避開的半徑；
+       anchorY：浮動標籤的高度；focus：鏡頭看的點；cam：鏡頭位置，都用設施自己的座標）
+   --------------------------------------------------------------------- */
+const LAYOUT = {
+  timeline: { x: -7.4, z: -15.6, yaw: 0.35, pad: 5.3, clear: 6.8, anchorY: 16.6, focus: [0, 7.4, 0], cam: [-5, 10.5, 26] },
+  projects: { x: 10.6, z: -14.6, yaw: -0.628, pad: 5.0, clear: 9.2, anchorY: 10.4, focus: [0, 3.4, 0], cam: [-4, 11, 20.5] },
+  places:   { x: -17.5, z: 0.6, yaw: 1.6, pad: 4.4, clear: 5.6, anchorY: 10.2, focus: [0, 4.6, 0], cam: [-3, 7.5, 16] },
+  skills:   { x: 17.5, z: 0.6, yaw: -1.6, pad: 6.1, clear: 7.0, anchorY: 5.4, focus: [0, 1.2, 0], cam: [-3, 10, 14.5] },
+  webinar:  { x: -9.9, z: 14.2, yaw: 1.15, pad: 5.2, clear: 7.0, anchorY: 9.8, focus: [0, 3.6, 0], cam: [4, 7.5, 18] },
+  lessons:  { x: 9.9, z: 14.2, yaw: -1.15, pad: 5.7, clear: 6.6, anchorY: 5.6, focus: [0, 1.4, 0], cam: [-4, 8, 15] },
+  about:    { x: 0, z: 26.4, yaw: 0, pad: 3, clear: 6.4, anchorY: 10, focus: [0, 6.6, 0], cam: [0, 7.8, 17.5] }
+};
+
+const facilities = {};
+function placeFacility(key) {
+  const L = LAYOUT[key];
+  const g = new THREE.Group();
+  g.position.set(L.x, 0, L.z);
+  g.rotation.y = L.yaw;
+  g.name = key;
+  world.add(g);
+  return g;
+}
+// 設施蓋好後登記：讓它可以被點、並放一個浮動標籤的錨點
+function registerFacility(key, g) {
+  const anchor = new THREE.Object3D();
+  anchor.position.set(0, LAYOUT[key].anchorY, 0);
+  g.add(anchor);
+  g.traverse(o => { if (o.isMesh) o.userData.key = key; });
+  facilities[key] = { group: g, anchor };
+}
+
+/* ---------------------------------------------------------------------
+   4. 漂浮小島：草地圓盤、泥土邊、底下的岩石、遠處的小浮島
+   --------------------------------------------------------------------- */
+function buildIsland() {
+  const g = new THREE.Group();
+  world.add(g);
+
+  const grassGeo = new THREE.CylinderGeometry(30, 29.4, 1.2, 48, 1);
+  jitter(grassGeo, 0.6, v => v.y < 0, 1);
+  add(g, grassGeo, mat(P.grass), 0, -0.6, 0).castShadow = false;
+
+  const dirtGeo = new THREE.CylinderGeometry(29.5, 25.5, 3.4, 48, 2);
+  jitter(dirtGeo, 1.0, v => v.y < 1.6, 2);
+  add(g, dirtGeo, mat(P.dirt), 0, -2.85, 0).castShadow = false;
+
+  const rockGeo = new THREE.ConeGeometry(25.8, 22, 24, 5);
+  rockGeo.rotateX(Math.PI);
+  jitter(rockGeo, 3.2, v => v.y < 10.9, 3);
+  add(g, rockGeo, mat(P.rock), 0, -15.3, 0).castShadow = false;
+
+  // 掛在底下的小岩塊
+  const b = new Batch();
+  for (let i = 0; i < 10; i++) {
+    const a = i / 10 * TAU + rr(-0.2, 0.2), r = rr(9, 21), h = rr(4, 8);
+    const surfaceY = -4.3 - (1 - r / 25.8) * 22;
+    const geo = new THREE.ConeGeometry(rr(1.8, 3.2), h, 6, 2);
+    geo.rotateX(Math.PI);
+    jitter(geo, 0.9, null, 10 + i);
+    b.add(geo, mat(i % 2 ? P.rock : P.rockDark), xf(Math.sin(a) * r, surfaceY + 1.2 - h / 2, Math.cos(a) * r));
+  }
+  b.flush(g, { cast: false });
+
+  // 遠處的三座小浮島
+  for (const [a, r, y, s] of [[0.95, 42, -4, 1], [2.7, 46, 4, 0.8], [4.5, 41, -9, 0.9]]) {
+    const m = new THREE.Group();
+    const mb = new Batch();
+    const top = new THREE.CylinderGeometry(3.2, 3.0, 0.7, 10, 1);
+    mb.add(top, mat(P.grass), xf(0, -0.35, 0));
+    const under = new THREE.ConeGeometry(3.0, 5, 9, 2);
+    under.rotateX(Math.PI);
+    jitter(under, 0.7, v => v.y < 2.4, 30 + a);
+    mb.add(under, mat(P.rock), xf(0, -3.2, 0));
+    mb.add(new THREE.CylinderGeometry(0.16, 0.22, 0.9, 5), mat(P.wood), xf(0.6, 0.45, 0.3));
+    mb.add(new THREE.ConeGeometry(0.9, 1.6, 7), mat(P.leaf), xf(0.6, 1.5, 0.3));
+    mb.add(new THREE.ConeGeometry(0.65, 1.2, 7), mat(P.leaf), xf(0.6, 2.2, 0.3));
+    mb.flush(m, { cast: false, receive: false });
+    m.scale.setScalar(s);
+    m.position.set(Math.sin(a) * r, y, Math.cos(a) * r);
+    scene.add(m);
+    onFrame(t => { m.position.y = y + Math.sin(t * 0.45 + a * 2) * 0.7; });
+  }
+}
+
+/* ---------------------------------------------------------------------
+   5. 中央廣場、噴水池、步道、路燈
+   --------------------------------------------------------------------- */
+function buildPlaza() {
+  const g = new THREE.Group();
+  world.add(g);
+  const b = new Batch();
+  b.add(new THREE.CylinderGeometry(7.0, 7.1, 0.18, 32), mat(P.stoneDark), xf(0, 0.09, 0));
+  b.add(new THREE.CylinderGeometry(6.5, 6.5, 0.26, 32), mat(P.cream), xf(0, 0.13, 0));
+  b.add(new THREE.CylinderGeometry(4.4, 4.4, 0.28, 32), mat(P.mustard), xf(0, 0.14, 0));
+  b.add(new THREE.CylinderGeometry(3.7, 3.7, 0.3, 32), mat(P.cream), xf(0, 0.15, 0));
+  // 噴水池
+  b.add(new THREE.CylinderGeometry(2.5, 2.7, 0.8, 14), mat(P.brick), xf(0, 0.6, 0));
+  b.add(new THREE.CylinderGeometry(0.35, 0.5, 1.8, 8), mat(P.cream), xf(0, 1.6, 0));
+  b.add(new THREE.CylinderGeometry(1.2, 0.45, 0.45, 12), mat(P.mustard), xf(0, 2.5, 0));
+  b.flush(g);
+
+  const waterMat = new THREE.MeshLambertMaterial({ color: P.water, flatShading: true, transparent: true, opacity: 0.88 });
+  add(g, new THREE.CylinderGeometry(2.25, 2.25, 0.1, 14), waterMat, 0, 0.96, 0).castShadow = false;
+  add(g, new THREE.CylinderGeometry(1.05, 1.05, 0.08, 12), waterMat, 0, 2.7, 0).castShadow = false;
+  const jet = add(g, new THREE.ConeGeometry(0.22, 1.0, 6), waterMat, 0, 3.2, 0);
+  jet.castShadow = false;
+  const dropGeo = new THREE.IcosahedronGeometry(0.09, 0);
+  const drops = [];
+  for (let i = 0; i < 12; i++) {
+    const d = add(g, dropGeo, waterMat);
+    d.castShadow = false;
+    drops.push({ m: d, a: i / 12 * TAU, ph: (i * 0.37) % 1 });
+  }
+  onFrame(t => {
+    jet.scale.y = 1 + Math.sin(t * 6) * 0.15;
+    for (const d of drops) {
+      const k = (t * 0.7 + d.ph) % 1, r = 1.1 + k * 0.9;
+      d.m.position.set(Math.sin(d.a) * r, 2.75 + Math.sin(k * Math.PI) * 0.6 - k * 1.7, Math.cos(d.a) * r);
+    }
+  });
+}
+
+function buildPaths() {
+  const b = new Batch();
+  const seg = (x1, z1, x2, z2) => {
+    const dx = x2 - x1, dz = z2 - z1, len = Math.hypot(dx, dz);
+    b.add(new THREE.BoxGeometry(2.4, 0.14, len), mat(P.path), xf((x1 + x2) / 2, 0.07, (z1 + z2) / 2, 0, Math.atan2(dx, dz), 0));
+  };
+  for (const key of CONTENT.order) {
+    const L = LAYOUT[key], d = Math.hypot(L.x, L.z), ux = L.x / d, uz = L.z / d;
+    seg(ux * 6.6, uz * 6.6, L.x - ux * (L.pad - 0.4), L.z - uz * (L.pad - 0.4));
+  }
+  seg(0, 6.6, 0, 29.2); // 到入口大門
+  b.flush(world, { cast: false });
+}
+
+function buildLamps() {
+  const b = new Batch();
+  const glow = glowMat(0xFFE2A0, 0.0, 1.5);
+  // 每條步道的方向角度（含入口），路燈插在相鄰兩條步道的正中間
+  const angles = CONTENT.order.map(k => Math.atan2(LAYOUT[k].x, LAYOUT[k].z)).concat([0]).map(a => (a + TAU) % TAU).sort((a, b) => a - b);
+  const spots = angles.map((a, i) => {
+    const next = i + 1 < angles.length ? angles[i + 1] : angles[0] + TAU;
+    const mid = (a + next) / 2;
+    return [Math.sin(mid) * 7.7, Math.cos(mid) * 7.7, i % 2 === 0];
+  });
+  spots.push([1.9, 13.5, false], [-1.9, 20, false]); // 往入口的步道
+  for (const [x, z, withLight] of spots) {
+    b.add(new THREE.CylinderGeometry(0.3, 0.38, 0.3, 6), mat(P.navy), xf(x, 0.15, z));
+    b.add(new THREE.CylinderGeometry(0.09, 0.11, 3.3, 6), mat(P.navy), xf(x, 1.8, z));
+    b.add(new THREE.BoxGeometry(0.7, 0.08, 0.7), mat(P.navy), xf(x, 3.33, z));
+    b.add(new THREE.BoxGeometry(0.55, 0.6, 0.55), glow, xf(x, 3.67, z));
+    b.add(new THREE.ConeGeometry(0.52, 0.5, 4), mat(P.brick), xf(x, 4.22, z, 0, Math.PI / 4));
+    if (withLight) addLight(world, x, 3.4, z, 0xFFC56E, 10, 15);
+  }
+  b.flush(world);
+}
+
+/* ---------------------------------------------------------------------
+   6. 樹、灌木、石頭（自動避開設施和步道）
+   --------------------------------------------------------------------- */
+function distToSeg(px, pz, x1, z1, x2, z2) {
+  const dx = x2 - x1, dz = z2 - z1;
+  const t = clamp(((px - x1) * dx + (pz - z1) * dz) / (dx * dx + dz * dz), 0, 1);
+  return Math.hypot(px - (x1 + dx * t), pz - (z1 + dz * t));
+}
+function buildTrees() {
+  const avoid = [[0, 0, 8.2]];
+  const segs = [[0, 0, 0, 29.5]];
+  for (const key of Object.keys(LAYOUT)) {
+    const L = LAYOUT[key];
+    avoid.push([L.x, L.z, L.clear]);
+    if (key !== 'about') segs.push([0, 0, L.x, L.z]);
+  }
+  const placed = [];
+  const free = (x, z, r) => {
+    if (Math.hypot(x, z) > 27.6) return false;
+    for (const [ax, az, ar] of avoid) if (Math.hypot(x - ax, z - az) < ar + r) return false;
+    for (const [x1, z1, x2, z2] of segs) if (distToSeg(x, z, x1, z1, x2, z2) < 2.5 + r) return false;
+    for (const [px, pz, pr] of placed) if (Math.hypot(x - px, z - pz) < pr + r) return false;
+    return true;
+  };
+
+  const b = new Batch();
+  const pine = [new THREE.ConeGeometry(1.4, 2.0, 7), new THREE.ConeGeometry(1.1, 1.7, 7), new THREE.ConeGeometry(0.75, 1.4, 7)];
+  const trunk = new THREE.CylinderGeometry(0.2, 0.3, 1.2, 5);
+  const crown = new THREE.IcosahedronGeometry(1.35, 0);
+  const crownSmall = new THREE.IcosahedronGeometry(0.9, 0);
+  let count = 0, tries = 0;
+  while (count < 40 && tries++ < 1500) {
+    const a = rand() * TAU, r = rr(8.5, 27.4), s = rr(0.8, 1.35);
+    const x = Math.sin(a) * r, z = Math.cos(a) * r;
+    if (!free(x, z, 1.2 * s)) continue;
+    placed.push([x, z, 1.2 * s]);
+    count++;
+    const M = xf(x, 0, z, 0, rand() * TAU, 0, s);
+    const k = rand();
+    b.add(trunk, mat(P.wood), M.clone().multiply(xf(0, 0.6, 0)));
+    if (k < 0.55) {
+      b.add(pine[0], mat(P.leaf), M.clone().multiply(xf(0, 1.8, 0)));
+      b.add(pine[1], mat(P.leaf), M.clone().multiply(xf(0, 2.8, 0)));
+      b.add(pine[2], mat(P.leaf), M.clone().multiply(xf(0, 3.7, 0)));
+    } else {
+      const col = k < 0.85 ? P.leafLight : P.mustard;
+      b.add(crown, mat(col), M.clone().multiply(xf(0, 2.3, 0)));
+      b.add(crownSmall, mat(col), M.clone().multiply(xf(0.6, 2.95, 0.25)));
+    }
+  }
+  // 灌木與石頭
+  const bush = new THREE.IcosahedronGeometry(0.65, 0);
+  const rock = new THREE.DodecahedronGeometry(0.5, 0);
+  for (let i = 0, n = 0; i < 600 && n < 34; i++) {
+    const a = rand() * TAU, r = rr(7.5, 28.2);
+    const x = Math.sin(a) * r, z = Math.cos(a) * r;
+    if (!free(x, z, 0.7)) continue;
+    placed.push([x, z, 0.7]);
+    n++;
+    if (n % 3 === 0) b.add(rock, mat(P.stone), xf(x, 0.2, z, rand(), rand(), 0, rr(0.6, 1.2), rr(0.5, 0.8), rr(0.6, 1.2)));
+    else b.add(bush, mat(n % 2 ? P.leaf : P.leafLight), xf(x, 0.35, z, 0, rand() * TAU, 0, rr(0.8, 1.3), rr(0.6, 0.8), rr(0.8, 1.3)));
+  }
+  b.flush(world);
+}
+
+/* ---------------------------------------------------------------------
+   7. 入口大門（About）：招牌用 Canvas 寫名字跟職稱
+   --------------------------------------------------------------------- */
+function roundRect(c, x, y, w, h, r) {
+  c.beginPath();
+  c.moveTo(x + r, y);
+  c.arcTo(x + w, y, x + w, y + h, r);
+  c.arcTo(x + w, y + h, x, y + h, r);
+  c.arcTo(x, y + h, x, y, r);
+  c.arcTo(x, y, x + w, y, r);
+  c.closePath();
+}
+function makeSignTexture() {
+  const cv = document.createElement('canvas');
+  cv.width = 1024;
+  cv.height = 346;
+  const tex = new THREE.CanvasTexture(cv);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+  const draw = () => {
+    const c = cv.getContext('2d'), W = cv.width, H = cv.height;
+    c.fillStyle = '#1E3557';
+    c.fillRect(0, 0, W, H);
+    roundRect(c, 16, 16, W - 32, H - 32, 34);
+    c.fillStyle = '#FFF1D6';
+    c.fill();
+    c.setLineDash([22, 14]);
+    c.lineWidth = 6;
+    c.strokeStyle = '#E8B23A';
+    roundRect(c, 38, 38, W - 76, H - 76, 22);
+    c.stroke();
+    c.setLineDash([]);
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    // 名字：太長就自動縮小
+    let size = 138;
+    const nameFont = s => '700 ' + s + 'px Fredoka, "Arial Rounded MT Bold", system-ui, sans-serif';
+    c.font = nameFont(size);
+    while (c.measureText(CONTENT.person.name).width > W - 200 && size > 50) c.font = nameFont(size -= 4);
+    c.fillStyle = '#1E3557';
+    c.fillText(CONTENT.person.name, W / 2, H * 0.42);
+    // 職稱
+    let tsize = 50;
+    const titleFont = s => '800 ' + s + 'px Nunito, system-ui, sans-serif';
+    const title = CONTENT.person.title.toUpperCase();
+    c.font = titleFont(tsize);
+    while (c.measureText(title).width > W - 220 && tsize > 22) c.font = titleFont(tsize -= 2);
+    c.fillStyle = '#B04528';
+    c.fillText(title, W / 2, H * 0.74);
+    c.fillStyle = '#E8B23A';
+    c.font = '700 54px system-ui, sans-serif';
+    c.fillText('★', 92, H / 2);
+    c.fillText('★', W - 92, H / 2);
+    tex.needsUpdate = true;
+  };
+  draw();
+  // 字型載完再畫一次，不然 Canvas 會用到系統字
+  if (document.fonts) {
+    Promise.all([document.fonts.load('700 120px Fredoka'), document.fonts.load('800 50px Nunito')]).then(draw, () => {});
+  }
+  return tex;
+}
+
+function buildGate(g) {
+  const b = new Batch();
+  for (const s of [-1, 1]) {
+    const x = s * 4.4;
+    for (let i = 0; i < 5; i++) b.add(new THREE.BoxGeometry(1.3, 1.24, 1.3), mat(i % 2 ? P.cream : P.brick), xf(x, 0.62 + i * 1.24, 0));
+    b.add(new THREE.BoxGeometry(1.6, 0.3, 1.6), mat(P.navy), xf(x, 6.35, 0));
+    b.add(new THREE.ConeGeometry(1.1, 1.5, 4), mat(P.mustard), xf(x, 7.25, 0, 0, Math.PI / 4));
+    b.add(new THREE.IcosahedronGeometry(0.28, 0), mat(P.brick), xf(x, 8.15, 0));
+  }
+  b.add(new THREE.BoxGeometry(8.0, 0.55, 0.8), mat(P.navy), xf(0, 5.6, 0));
+  for (const s of [-1, 1]) b.add(new THREE.BoxGeometry(0.3, 0.5, 0.3), mat(P.navy), xf(s * 2.4, 6.05, 0));
+  b.flush(g);
+
+  // 招牌（前後兩面都貼字，晚上會亮）
+  const tex = makeSignTexture();
+  const face = new THREE.MeshLambertMaterial({ map: tex, emissive: 0xFFFFFF, emissiveMap: tex, emissiveIntensity: 0 });
+  glows.push({ m: face, day: 0, night: 0.5 });
+  const side = mat(P.navy);
+  const sign = new THREE.Mesh(new THREE.BoxGeometry(6.8, 2.3, 0.35), [side, side, side, side, face, face]);
+  sign.position.set(0, 7.45, 0);
+  sign.castShadow = true;
+  g.add(sign);
+
+  // 招牌下面掛的一行字（文字在 CONTENT.person.gateLine）
+  if (CONTENT.person.gateLine) {
+    const lineTex = makeBannerTexture(CONTENT.person.gateLine, 1024, 154);
+    const lineFace = new THREE.MeshLambertMaterial({ map: lineTex, emissive: 0xFFFFFF, emissiveMap: lineTex, emissiveIntensity: 0 });
+    glows.push({ m: lineFace, day: 0.05, night: 0.6 });
+    const board = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.75, 0.14), [side, side, side, side, lineFace, lineFace]);
+    board.position.set(0, 4.75, 0);
+    board.castShadow = true;
+    g.add(board);
+    const rods = new Batch();
+    for (const x of [-2.1, 2.1]) rods.beam(V(x, 5.1, 0), V(x, 5.35, 0), 0.03, mat(P.navy), 4);
+    rods.flush(g);
+  }
+
+  // 招牌周圍的跑馬燈
+  const bulbA = glowMat(0xFFE58F, 0.05, 2.6), bulbB = glowMat(0xFF9F5A, 0.05, 2.6);
+  const pts = [];
+  for (let i = 0; i <= 12; i++) { const x = -3.25 + i * 6.5 / 12; pts.push([x, 8.47], [x, 6.43]); }
+  for (let i = 1; i < 4; i++) { const y = 6.43 + i * 2.04 / 4; pts.push([-3.25, y], [3.25, y]); }
+  const geo = new THREE.IcosahedronGeometry(0.1, 0);
+  const instA = new THREE.InstancedMesh(geo, bulbA, Math.ceil(pts.length / 2));
+  const instB = new THREE.InstancedMesh(geo, bulbB, Math.floor(pts.length / 2));
+  pts.forEach(([x, y], i) => (i % 2 ? instB : instA).setMatrixAt(i >> 1, xf(x, y, 0.22)));
+  g.add(instA, instB);
+  onFrame(t => {
+    const k = 0.5 + 0.5 * Math.sin(t * 6);
+    bulbA.emissiveIntensity *= 0.35 + 0.65 * k;
+    bulbB.emissiveIntensity *= 1 - 0.65 * k;
+  });
+}
+
+/* ---------------------------------------------------------------------
+   8. 設施 1：摩天輪（Timeline）— 會轉，車廂保持直立，晚上燈泡跑馬
+   --------------------------------------------------------------------- */
+function buildFerrisWheel(g) {
+  const H = 8.8, R = 6;
+  const b = new Batch();
+  b.add(new THREE.CylinderGeometry(5.3, 5.3, 0.16, 14), mat(P.brick), xf(0, 0.08, 0));
+  b.add(new THREE.CylinderGeometry(4.8, 5.1, 0.4, 14), mat(P.cream), xf(0, 0.2, 0));
+  for (const s of [-1, 1]) {
+    b.beam(V(-3.4, 0.4, s * 1.9), V(0, H, s * 1.1), 0.2, mat(P.navy));
+    b.beam(V(3.4, 0.4, s * 1.9), V(0, H, s * 1.1), 0.2, mat(P.navy));
+    b.beam(V(-2.0, 3.6, s * 1.62), V(2.0, 3.6, s * 1.62), 0.12, mat(P.navy));
+  }
+  b.add(new THREE.CylinderGeometry(0.42, 0.42, 2.9, 8), mat(P.mustard), xf(0, H, 0, Math.PI / 2));
+  // 售票亭
+  b.add(new THREE.BoxGeometry(1.4, 1.5, 1.1), mat(P.sky), xf(3.6, 1.15, 2.9));
+  b.add(new THREE.BoxGeometry(0.9, 0.5, 0.1), mat(P.navy), xf(3.6, 1.35, 3.46));
+  b.add(new THREE.ConeGeometry(1.1, 0.8, 4), mat(P.brick), xf(3.6, 2.3, 2.9, 0, Math.PI / 4));
+  b.flush(g);
+
+  const wheel = new THREE.Group();
+  wheel.position.set(0, H, 0);
+  g.add(wheel);
+  const wb = new Batch();
+  for (const s of [-0.75, 0.75]) {
+    wb.add(new THREE.TorusGeometry(R, 0.17, 6, 32), mat(P.brick), xf(0, 0, s));
+    wb.add(new THREE.TorusGeometry(R * 0.5, 0.1, 5, 20), mat(P.mustard), xf(0, 0, s));
+    for (let i = 0; i < 16; i++) {
+      const a = i / 16 * TAU;
+      wb.beam(V(0, 0, s), V(Math.cos(a) * R, Math.sin(a) * R, s), 0.06, mat(P.cream), 4);
+    }
+  }
+  for (let i = 0; i < 8; i++) {
+    const a = i / 8 * TAU, x = Math.cos(a) * R, y = Math.sin(a) * R;
+    wb.beam(V(x, y, -0.95), V(x, y, 0.95), 0.08, mat(P.navy), 5);
+  }
+  wb.flush(wheel);
+
+  // 輪框上的燈泡（兩組輪流亮）
+  const bulbA = glowMat(0xFFE58F, 0.05, 2.6), bulbB = glowMat(0xFF9F5A, 0.05, 2.6);
+  const NB = 36, bulbGeo = new THREE.IcosahedronGeometry(0.13, 0);
+  const instA = new THREE.InstancedMesh(bulbGeo, bulbA, NB / 2), instB = new THREE.InstancedMesh(bulbGeo, bulbB, NB / 2);
+  for (let i = 0; i < NB; i++) {
+    const a = i / NB * TAU;
+    (i % 2 ? instB : instA).setMatrixAt(i >> 1, xf(Math.cos(a) * (R + 0.02), Math.sin(a) * (R + 0.02), 0.98));
+  }
+  wheel.add(instA, instB);
+
+  // 車廂
+  const cabinCols = [P.brick, P.mustard, P.sky, P.grass, P.cream, P.pink, P.navyLight, P.lilac];
+  const cabinGeo = new THREE.CylinderGeometry(0.78, 0.6, 1.0, 8);
+  const roofGeo = new THREE.ConeGeometry(0.9, 0.55, 8);
+  const rodGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.9, 4);
+  const gondolas = [];
+  for (let i = 0; i < 8; i++) {
+    const a = i / 8 * TAU;
+    const gd = new THREE.Group();
+    gd.position.set(Math.cos(a) * R, Math.sin(a) * R, 0);
+    wheel.add(gd);
+    add(gd, rodGeo, mat(P.navy), 0, -0.45, 0);
+    add(gd, roofGeo, mat(P.cream), 0, -0.95, 0);
+    add(gd, cabinGeo, mat(cabinCols[i]), 0, -1.7, 0);
+    gondolas.push(gd);
+  }
+
+  onFrame((t, dt) => {
+    wheel.rotation.z -= dt * 0.16;
+    gondolas.forEach((gd, i) => { gd.rotation.z = -wheel.rotation.z + Math.sin(t * 1.3 + i) * 0.04; });
+    const k = 0.5 + 0.5 * Math.sin(t * 5);
+    bulbA.emissiveIntensity *= 0.35 + 0.65 * k;
+    bulbB.emissiveIntensity *= 1 - 0.65 * k;
+  });
+}
+
+/* ---------------------------------------------------------------------
+   9. 設施 2：雲霄飛車（Projects）— 車子沿軌道跑，下坡變快
+   --------------------------------------------------------------------- */
+function buildCoaster(g) {
+  const b = new Batch();
+  b.add(new THREE.CylinderGeometry(1, 1, 0.16, 28), mat(P.sand), xf(0, 0.08, 0, 0, 0, 0, 8.4, 1, 5.3));
+
+  const curve = new THREE.CatmullRomCurve3([
+    V(-6.0, 1.1, 2.8), V(-2.0, 1.1, 3.2), V(1.5, 2.0, 3.2), V(4.5, 6.0, 2.6),
+    V(6.6, 7.6, 0.6), V(6.2, 6.4, -1.8), V(4.0, 2.2, -3.0), V(1.0, 1.4, -3.2),
+    V(-1.5, 4.0, -3.0), V(-4.0, 1.8, -2.8), V(-6.8, 3.0, -1.2), V(-7.2, 2.0, 1.2)
+  ], true, 'centripetal');
+
+  // 每一個取樣點的方向：tan（前進）、side（側邊）、up（軌道上方）
+  const N = 280;
+  const frame = u => {
+    const p = curve.getPointAt(u), tan = curve.getTangentAt(u);
+    const side = new THREE.Vector3().crossVectors(UP, tan).normalize();
+    const up = new THREE.Vector3().crossVectors(tan, side).normalize();
+    return { p, tan, side, up };
+  };
+  const left = [], right = [];
+  let maxY = 0;
+  for (let i = 0; i < N; i++) {
+    const f = frame(i / N);
+    maxY = Math.max(maxY, f.p.y);
+    left.push(f.p.clone().addScaledVector(f.side, 0.42));
+    right.push(f.p.clone().addScaledVector(f.side, -0.42));
+    if (i % 3 === 0) {
+      const m = new THREE.Matrix4().makeBasis(f.side, f.up, f.tan).setPosition(f.p.clone().addScaledVector(f.up, -0.06));
+      b.add(new THREE.BoxGeometry(1.12, 0.07, 0.18), mat(P.cream), m);
+    }
+    if (i % 9 === 0 && f.p.y > 0.5) b.beam(V(f.p.x, 0.1, f.p.z), V(f.p.x, f.p.y - 0.1, f.p.z), 0.1, mat(P.navy), 5);
+  }
+  for (const rail of [left, right]) {
+    b.add(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(rail, true), N, 0.09, 5, true), mat(P.brick));
+  }
+  // 車站
+  b.add(new THREE.BoxGeometry(4.2, 0.9, 1.0), mat(P.cream), xf(-3.8, 0.45, 4.15));
+  for (const [x, z] of [[-5.6, 1.9], [-5.6, 4.5], [-1.8, 1.9], [-1.8, 4.5]]) b.beam(V(x, 0, z), V(x, 3.1, z), 0.09, mat(P.navy), 5);
+  b.add(new THREE.BoxGeometry(4.6, 0.22, 3.2), mat(P.brick), xf(-3.7, 3.2, 3.2));
+  b.add(new THREE.BoxGeometry(4.7, 0.12, 3.3), mat(P.mustard), xf(-3.7, 3.36, 3.2));
+  b.flush(g);
+
+  // 三節車廂
+  const cars = [];
+  for (let i = 0; i < 3; i++) {
+    const car = new THREE.Group();
+    const cb = new Batch();
+    cb.add(new THREE.BoxGeometry(0.98, 0.08, 1.2), mat(P.navy), xf(0, 0.14, 0));
+    cb.add(new THREE.BoxGeometry(0.92, 0.42, 1.15), mat(i === 0 ? P.mustard : P.brick), xf(0, 0.38, 0));
+    cb.add(new THREE.BoxGeometry(0.92, 0.42, 0.14), mat(P.cream), xf(0, 0.74, -0.5));
+    if (i === 0) cb.add(new THREE.ConeGeometry(0.46, 0.5, 4), mat(P.mustard), xf(0, 0.38, 0.82, Math.PI / 2, Math.PI / 4));
+    cb.flush(car);
+    g.add(car);
+    cars.push(car);
+  }
+  const length = curve.getLength();
+  const basis = new THREE.Matrix4();
+  let u = 0;
+  const placeCar = (car, uu) => {
+    const f = frame(uu);
+    car.position.copy(f.p).addScaledVector(f.up, 0.05);
+    basis.makeBasis(f.side, f.up, f.tan);
+    car.quaternion.setFromRotationMatrix(basis);
+  };
+  onFrame((t, dt) => {
+    const y = curve.getPointAt(u).y;
+    const v = Math.sqrt(3 + 2 * 9.8 * Math.max(0, maxY + 0.3 - y)) * 0.5; // 越低越快
+    u = (((u + v * dt / length) % 1) + 1) % 1;
+    cars.forEach((car, i) => placeCar(car, (u - i * 1.32 / length + 1) % 1));
+  });
+}
+
+/* ---------------------------------------------------------------------
+   10. 設施 3：地球儀（Places）— 慢慢轉，履歷裡的城市插紅色圖釘
+   --------------------------------------------------------------------- */
+// 很簡化的世界地圖（經度, 緯度）
+const LAND = [
+  [-168,66,-162,70,-150,71,-140,70,-128,70,-115,68,-95,72,-82,73,-80,63,-90,57,-82,52,-78,57,-70,60,-64,60,-56,52,-60,47,-66,44,-70,42,-76,38,-76,35,-81,31,-80,25,-82,28,-84,30,-90,29,-97,26,-97,21,-92,18,-88,21,-87,16,-83,10,-79,9,-81,8,-86,12,-92,14,-96,16,-105,20,-106,23,-112,29,-110,23,-115,30,-118,34,-121,36,-124,41,-124,47,-127,51,-132,55,-138,59,-146,61,-152,59,-158,57,-165,55,-160,59,-166,62],
+  [-120,74,-95,74,-80,74,-75,78,-90,82,-115,79],
+  [-55,60,-44,60,-40,65,-22,70,-20,77,-18,82,-40,83,-60,82,-70,78,-60,75,-55,70,-52,66],
+  [-80,9,-77,8,-72,12,-63,11,-60,8,-52,5,-50,0,-44,-2,-35,-5,-35,-9,-39,-15,-40,-22,-48,-26,-53,-34,-58,-38,-62,-41,-65,-45,-68,-50,-69,-55,-74,-52,-75,-46,-73,-38,-71,-30,-70,-18,-76,-14,-81,-6,-80,-1,-78,2],
+  [-85,22,-80,23,-74,20,-78,20],
+  [-10,36,-9,43,-2,43.5,-1.5,46,-4.5,48.5,-1,49.5,2,51,5,53,8,54,8.5,57,10.5,57.5,10.5,54.5,14,54,19,54.5,21,57,24,59.5,28,60,30,62,40,66,44,68,60,69,60,47,50,47,40,47,36,45,30,46,28,41,26,40,23,37,21,39,19,42,15,45,13,45.5,12,44,16,41,16,38,12,38,10,44,7,43.5,3,43,0,39,-2,37,-5,36],
+  [5,58,5,62,10,64,14,67,17,69,21,70,28,71,30,70,26,67,22,65.5,21,63,18,62,17,60,19,59.5,16,56,13,55.5,11,58,8,58],
+  [-5,50,1,51,2,53,-1,55,-2,57,-3,58.5,-5,58.5,-6,56.5,-5,54.5,-3,54,-5,52,-3,51.5,-5.5,50],
+  [-10,51.5,-6,52,-6,54,-7.5,55.3,-10,54.2],
+  [-24,64,-22,66,-15,66.5,-13,65,-18,63.5],
+  [-17,21,-13,28,-10,30,-9,33,-6,35.8,0,36,10,37,11,34,20,31,25,32,32,31,34,28,39,21,43,12,51,12,48,8,40,-2,40,-10,40,-16,35,-24,33,-28,28,-33,20,-35,18,-32,15,-27,12,-18,13,-10,9,-1,9,4,5,5,-4,5,-8,4.5,-13,8,-17,14],
+  [44,-25,47,-25,50,-15,49,-12,44,-17],
+  [35,28,34,31,36,36,42,37,48,30,50,26,56,26,58,23,59,22,55,17,52,16,45,13,43,13,39,21],
+  [26,40,30,41,36,36.5,42,37,48,30,52,28,57,26,62,25,67,24,72,21,73,16,77,8,80,12,80,15,87,21,92,22,94,17,98,16,98,8,101,3,104,1.5,103,8,105,10,109,12,108,17,106,20,110,21,117,23,121,28,122,31,120,35,122,37,118,39,122,40.5,125,40,126,37,129,35,130,43,135,44,141,50,140,54,136,55,142,59,152,59,156,51,160,54,163,60,170,60,180,65,180,69,170,70,160,70,150,72,140,73,130,71,120,73,110,77,100,79,90,75,80,73,70,73,68,69,60,69,60,55,55,50,50,47,48,42,52,40,54,37,48,38,44,40,40,41,36,42,30,41],
+  [130,31,131,34,135,34,140,35,141,38,142,40,141,42,145,43.5,142,45.5,140,42,139,38,136,36,132,35],
+  [120.1,23,121,22,121.9,25,121.5,25.3,120.7,24.5],
+  [120,18,122,18,124,12,126,7,122,7,120,14],
+  [95,5,98,4,104,-2,106,-6,102,-4,96,2],
+  [109,1,110,-3,116,-4,119,1,117,7,113,4],
+  [105,-6,114,-7,114,-8.5,106,-7.5],
+  [131,-1,141,-2.5,150,-10,141,-9,138,-8,132,-4],
+  [114,-22,114,-26,115,-34,118,-35,124,-34,131,-31.5,138,-35,140,-38,146,-39,150,-37,153,-32,153,-25,146,-19,145,-15,142,-11,141,-17,136,-12,131,-11,126,-14,122,-18],
+  [172,-34,175,-37,178,-38,176,-41,174,-41,172,-41,167,-46,170,-46,174,-42,173,-38]
+];
+const SEAS = [
+  [28,41.5,33,42,41,41.5,38,44.5,33,46,30,45.5],
+  [47,37,54,37,54,41,52,45,50,46.5,47,44]
+];
+function makeGlobeTexture() {
+  const W = 1024, H = 512;
+  const cv = document.createElement('canvas');
+  cv.width = W;
+  cv.height = H;
+  const c = cv.getContext('2d');
+  const xy = (lon, lat) => [(lon + 180) / 360 * W, (90 - lat) / 180 * H];
+  c.fillStyle = '#4FA3D6';
+  c.fillRect(0, 0, W, H);
+  c.strokeStyle = 'rgba(255,255,255,0.28)';
+  c.lineWidth = 2;
+  for (let lon = -180; lon <= 180; lon += 30) { const [x] = xy(lon, 0); c.beginPath(); c.moveTo(x, 0); c.lineTo(x, H); c.stroke(); }
+  for (let lat = -60; lat <= 60; lat += 30) { const [, y] = xy(0, lat); c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke(); }
+  const poly = arr => {
+    c.beginPath();
+    for (let i = 0; i < arr.length; i += 2) { const [x, y] = xy(arr[i], arr[i + 1]); i ? c.lineTo(x, y) : c.moveTo(x, y); }
+    c.closePath();
+  };
+  c.lineJoin = 'round';
+  c.fillStyle = '#8CC56B';
+  c.strokeStyle = '#3E7A3A';
+  c.lineWidth = 3;
+  for (const p of LAND) { poly(p); c.fill(); c.stroke(); }
+  c.fillStyle = '#4FA3D6';
+  for (const p of SEAS) { poly(p); c.fill(); }
+  // 南極
+  c.fillStyle = '#F4FAFF';
+  c.beginPath();
+  c.moveTo(0, H);
+  for (let lon = -180; lon <= 180; lon += 10) { const [x, y] = xy(lon, -68 - 3 * Math.sin(lon * 0.09)); c.lineTo(x, y); }
+  c.lineTo(W, H);
+  c.closePath();
+  c.fill();
+  const tex = new THREE.CanvasTexture(cv);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
+  return tex;
+}
+// 經緯度 → 球面上的點（跟 SphereGeometry 的貼圖座標對齊）
+function latLonToVec(lat, lon, r) {
+  const phi = (lon + 180) * Math.PI / 180, theta = (90 - lat) * Math.PI / 180;
+  return V(-r * Math.cos(phi) * Math.sin(theta), r * Math.cos(theta), r * Math.sin(phi) * Math.sin(theta));
+}
+
+function buildGlobe(g) {
+  const R = 3, CY = 5.4;
+  const b = new Batch();
+  b.add(new THREE.CylinderGeometry(4.4, 4.5, 0.16, 12), mat(P.cream), xf(0, 0.08, 0));
+  b.add(new THREE.CylinderGeometry(2.2, 2.2, 0.2, 8), mat(P.mustard), xf(0, 0.26, 0));
+  b.add(new THREE.CylinderGeometry(1.5, 1.9, 0.8, 8), mat(P.navy), xf(0, 0.76, 0));
+  b.add(new THREE.CylinderGeometry(0.16, 0.2, 1.1, 6), mat(P.cream), xf(0, 1.65, 0));
+  b.flush(g);
+
+  const stand = new THREE.Group();
+  stand.position.set(0, CY, 0);
+  stand.rotation.y = 0.6;
+  g.add(stand);
+  add(stand, new THREE.TorusGeometry(R + 0.45, 0.11, 5, 36), mat(P.mustard));
+
+  const tilt = new THREE.Group();
+  tilt.rotation.z = 0.41; // 地軸傾斜 23.4°
+  stand.add(tilt);
+  add(tilt, new THREE.CylinderGeometry(0.07, 0.07, (R + 0.45) * 2, 6), mat(P.cream));
+
+  const globe = add(tilt, new THREE.SphereGeometry(R, 28, 18), new THREE.MeshLambertMaterial({ map: makeGlobeTexture(), flatShading: true }));
+  globe.rotation.y = -2.2;
+
+  // 紅色圖釘：每個城市一根（城市清單來自 CONTENT.sections.places）
+  const pins = new Batch();
+  const headMat = glowMat(P.red, 0.05, 0.9);
+  for (const group of CONTENT.sections.places.groups) {
+    for (const city of group.cities) {
+      const n = latLonToVec(city.lat, city.lon, 1);
+      const q = new THREE.Quaternion().setFromUnitVectors(UP, n);
+      const at = (d, geo, m) => pins.add(geo, m, new THREE.Matrix4().compose(n.clone().multiplyScalar(R + d), q, V(1, 1, 1)));
+      at(0.3, new THREE.CylinderGeometry(0.035, 0.035, 0.6, 5), mat(P.cream));
+      at(0.66, new THREE.IcosahedronGeometry(0.17, 1), headMat);
+    }
+  }
+  pins.flush(globe);
+
+  onFrame((t, dt) => { globe.rotation.y += dt * 0.18; });
+}
+
+/* ---------------------------------------------------------------------
+   11. 設施 4：花園（Skills）— 花床、樹籬、拱門，有螢火蟲
+   --------------------------------------------------------------------- */
+function buildGarden(g) {
+  const b = new Batch();
+  b.add(new THREE.CylinderGeometry(6.1, 6.3, 0.2, 18), mat(P.grassDark), xf(0, 0.1, 0));
+  // 樹籬（正面留開口）
+  for (let i = 0; i < 22; i++) {
+    const a = (i + 0.5) / 22 * TAU;
+    if (Math.abs(Math.atan2(Math.sin(a), Math.cos(a))) < 0.42) continue;
+    b.add(new THREE.BoxGeometry(1.75, 0.95, 0.75), mat(P.leaf), xf(Math.sin(a) * 5.65, 0.65, Math.cos(a) * 5.65, 0, a, 0));
+  }
+  // 拱門
+  for (const s of [-1, 1]) b.beam(V(s * 1.3, 0.2, 5.65), V(s * 1.3, 1.7, 5.65), 0.11, mat(P.cream), 6);
+  b.add(new THREE.TorusGeometry(1.3, 0.12, 5, 14, Math.PI), mat(P.cream), xf(0, 1.7, 5.65));
+  const archCols = [P.pink, P.brick, P.mustard, P.cream, P.lilac];
+  for (let i = 0; i <= 8; i++) {
+    const a = i / 8 * Math.PI;
+    b.add(new THREE.IcosahedronGeometry(0.2, 0), mat(archCols[i % archCols.length]), xf(Math.cos(a) * 1.3, 1.7 + Math.sin(a) * 1.3, 5.65 + (i % 2 ? 0.12 : -0.12)));
+  }
+  // 長椅
+  b.add(new THREE.BoxGeometry(1.9, 0.12, 0.6), mat(P.wood), xf(0, 0.6, -4.3));
+  b.add(new THREE.BoxGeometry(1.9, 0.5, 0.1), mat(P.brick), xf(0, 0.95, -4.6));
+  for (const s of [-1, 1]) b.add(new THREE.BoxGeometry(0.12, 0.5, 0.5), mat(P.navy), xf(s * 0.8, 0.3, -4.3));
+
+  // 花
+  const flowerCols = [P.brick, P.mustard, P.cream, P.pink, P.lilac, P.sky, 0xFFFFFF];
+  const bloom = new THREE.IcosahedronGeometry(0.2, 0), center = new THREE.IcosahedronGeometry(0.08, 0), tulip = new THREE.ConeGeometry(0.16, 0.32, 5);
+  const flower = (x, y, z, h) => {
+    b.beam(V(x, y, z), V(x, y + h, z), 0.04, mat(P.leaf), 4);
+    const col = pick(flowerCols);
+    if (rand() < 0.6) {
+      b.add(bloom, mat(col), xf(x, y + h + 0.05, z, 0, rand() * 3, 0, 1, 0.6, 1));
+      b.add(center, mat(P.mustard), xf(x, y + h + 0.14, z));
+    } else {
+      b.add(tulip, mat(col === P.mustard ? P.brick : col), xf(x, y + h + 0.12, z, Math.PI));
+    }
+  };
+  // 中央圓形花床
+  b.add(new THREE.CylinderGeometry(2.35, 2.35, 0.3, 14), mat(P.cream), xf(0, 0.25, 0));
+  b.add(new THREE.CylinderGeometry(2.1, 2.15, 0.4, 14), mat(P.soil), xf(0, 0.3, 0));
+  for (let i = 0; i < 21; i++) {
+    const r = 1.85 * Math.sqrt((i + 0.5) / 21), a = i * 2.39996;
+    flower(Math.sin(a) * r, 0.5, Math.cos(a) * r, rr(0.45, 0.9));
+  }
+  // 外圍小花床
+  for (const a of [1.35, 2.45, 3.85, 4.95]) {
+    const cx = Math.sin(a) * 3.75, cz = Math.cos(a) * 3.75;
+    b.add(new THREE.CylinderGeometry(0.95, 1.05, 0.32, 8), mat(P.soil), xf(cx, 0.26, cz));
+    for (let i = 0; i < 6; i++) {
+      const r = 0.7 * Math.sqrt((i + 0.5) / 6), ang = i * 2.39996;
+      flower(cx + Math.sin(ang) * r, 0.42, cz + Math.cos(ang) * r, rr(0.35, 0.7));
+    }
+  }
+  b.flush(g);
+
+  // 螢火蟲
+  const NF = 42;
+  const ff = [];
+  const fpos = new Float32Array(NF * 3);
+  for (let i = 0; i < NF; i++) ff.push({ r: rr(0.6, 5), a: rand() * TAU, sp: rr(0.15, 0.45) * (rand() < 0.5 ? -1 : 1), h: rr(0.6, 3.2), ph: rand() * TAU });
+  const fgeo = new THREE.BufferGeometry();
+  fgeo.setAttribute('position', new THREE.BufferAttribute(fpos, 3));
+  const fmat = new THREE.PointsMaterial({ color: 0xFFF08A, size: 0.4, map: glowTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.4 });
+  const fireflies = new THREE.Points(fgeo, fmat);
+  fireflies.frustumCulled = false;
+  g.add(fireflies);
+  onFrame(t => {
+    for (let i = 0; i < NF; i++) {
+      const f = ff[i], a = f.a + t * f.sp, r = f.r + Math.sin(t * 0.7 + f.ph) * 0.4;
+      fpos[i * 3] = Math.sin(a) * r;
+      fpos[i * 3 + 1] = f.h + Math.sin(t * 1.3 + f.ph) * 0.35;
+      fpos[i * 3 + 2] = Math.cos(a) * r;
+    }
+    fgeo.attributes.position.needsUpdate = true;
+    fmat.opacity = (0.35 + 0.65 * night) * (0.75 + 0.25 * Math.sin(t * 3));
+    fmat.size = 0.35 + 0.3 * night;
+  });
+}
+
+/* ---------------------------------------------------------------------
+   12. 設施 5：帳篷（Webinar Stage）— 條紋大帳篷，門口有小舞台和麥克風，頂上的旗子會飄
+   --------------------------------------------------------------------- */
+const flags = [];
+function makeFlag(parent, w, h, color, x, y, z, ry = 0) {
+  const geo = new THREE.PlaneGeometry(w, h, 8, 2);
+  geo.translate(w / 2, 0, 0);
+  const m = add(parent, geo, mat(color, THREE.DoubleSide), x, y, z);
+  m.rotation.y = ry;
+  flags.push({ geo, base: geo.attributes.position.array.slice(), w, ph: rand() * TAU });
+  return m;
+}
+onFrame(t => {
+  for (const f of flags) {
+    const a = f.geo.attributes.position.array;
+    for (let i = 0; i < a.length; i += 3) {
+      const x = f.base[i], k = x / f.w;
+      a[i + 1] = f.base[i + 1] + Math.sin(x * 2 - t * 4 + f.ph) * 0.05 * k;
+      a[i + 2] = Math.sin(x * 3.4 - t * 5.5 + f.ph) * 0.22 * k;
+    }
+    f.geo.attributes.position.needsUpdate = true;
+  }
+});
+
+function makeBannerTexture(text, w = 1024, h = 222) {
+  const cv = document.createElement('canvas');
+  cv.width = w;
+  cv.height = h;
+  const tex = new THREE.CanvasTexture(cv);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+  const draw = () => {
+    const c = cv.getContext('2d'), W = cv.width, H = cv.height;
+    c.fillStyle = '#1E3557';
+    c.fillRect(0, 0, W, H);
+    c.setLineDash([26, 16]);
+    c.lineWidth = 10;
+    c.strokeStyle = '#E8B23A';
+    roundRect(c, 18, 18, W - 36, H - 36, 26);
+    c.stroke();
+    c.setLineDash([]);
+    let size = 120;
+    const font = n => '700 ' + n + 'px Fredoka, "Arial Rounded MT Bold", system-ui, sans-serif';
+    c.font = font(size);
+    while ((c.measureText(text).width > W - 140 || size > H * 0.62) && size > 30) c.font = font(size -= 4);
+    c.fillStyle = '#FFF1D6';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText(text, W / 2, H / 2 + 6);
+    tex.needsUpdate = true;
+  };
+  draw();
+  if (document.fonts) document.fonts.load('700 120px Fredoka').then(draw, () => {});
+  return tex;
+}
+
+function buildTent(g) {
+  const R = 3.4, WALL = 2.6, ROOF = 3.4, S = 14;
+  const b = new Batch();
+  b.add(new THREE.CylinderGeometry(5.2, 5.3, 0.16, 16), mat(P.sand), xf(0, 0.08, 0));
+  for (let i = 0; i < S; i++) {
+    const th = (i - 0.5) / S * TAU, col = i % 2 ? P.cream : P.brick;
+    b.add(new THREE.CylinderGeometry(R, R, WALL, 2, 1, true, th, TAU / S), mat(col), xf(0, 0.16 + WALL / 2, 0));
+    b.add(new THREE.ConeGeometry(R + 0.6, ROOF, 2, 1, true, th, TAU / S), mat(col, THREE.DoubleSide), xf(0, 0.16 + WALL + ROOF / 2, 0));
+    const mid = th + TAU / S / 2;
+    b.add(new THREE.ConeGeometry(0.32, 0.45, 3), mat(i % 2 ? P.mustard : P.navy), xf(Math.sin(mid) * (R + 0.55), WALL - 0.05, Math.cos(mid) * (R + 0.55), Math.PI, mid, 0));
+  }
+  // 入口邊框
+  b.beam(V(-1.05, 0.2, R + 0.08), V(0, 2.4, R + 0.08), 0.06, mat(P.mustard), 4);
+  b.beam(V(1.05, 0.2, R + 0.08), V(0, 2.4, R + 0.08), 0.06, mat(P.mustard), 4);
+  // 門口的小舞台＋麥克風
+  b.add(new THREE.BoxGeometry(2.8, 0.34, 1.3), mat(P.navy), xf(0, 0.33, R + 0.85));
+  b.add(new THREE.BoxGeometry(2.9, 0.08, 1.4), mat(P.mustard), xf(0, 0.54, R + 0.85));
+  b.add(new THREE.CylinderGeometry(0.22, 0.26, 0.05, 8), mat(P.navy), xf(0.7, 0.6, R + 1.05));
+  b.beam(V(0.7, 0.6, R + 1.05), V(0.7, 1.75, R + 1.12), 0.03, mat(P.navy), 5);
+  b.add(new THREE.IcosahedronGeometry(0.1, 0), mat(P.iron), xf(0.7, 1.82, R + 1.14));
+  // 招牌的兩根柱子
+  for (const s of [-1, 1]) b.add(new THREE.CylinderGeometry(0.08, 0.1, 3.6, 6), mat(P.navy), xf(s * 1.75, 1.95, R + 1.6));
+  // 頂端旗桿
+  const top = 0.16 + WALL + ROOF;
+  b.add(new THREE.CylinderGeometry(0.07, 0.07, 1.9, 5), mat(P.navy), xf(0, top + 0.75, 0));
+  b.add(new THREE.IcosahedronGeometry(0.16, 0), mat(P.mustard), xf(0, top + 1.75, 0));
+  // 彩旗串：從旗桿頂拉到四根柱子
+  const pennantGeo = new THREE.ShapeGeometry(new THREE.Shape([new THREE.Vector2(-0.2, 0), new THREE.Vector2(0.2, 0), new THREE.Vector2(0, -0.42)]));
+  const pCols = [P.mustard, P.sky, P.brick, P.cream, P.grass];
+  const lineTop = V(0, top + 1.4, 0);
+  const postTops = [];
+  for (const a of [0.95, -0.95, 2.3, -2.3]) {
+    const px = Math.sin(a) * 5.0, pz = Math.cos(a) * 5.0;
+    b.add(new THREE.CylinderGeometry(0.08, 0.1, 2.6, 5), mat(P.navy), xf(px, 1.3, pz));
+    const end = V(px, 2.6, pz);
+    postTops.push([end, a]);
+    b.beam(lineTop, end, 0.025, mat(P.navy), 3);
+    for (let k = 1; k <= 6; k++) {
+      const t = 0.12 + k * 0.12, p = lineTop.clone().lerp(end, t);
+      p.y -= Math.sin(t * Math.PI) * 0.08;
+      b.add(pennantGeo, mat(pCols[k % pCols.length], THREE.DoubleSide), xf(p.x, p.y, p.z, 0, a - Math.PI / 2, 0));
+    }
+  }
+  b.flush(g);
+
+  // 入口：白天是深色，晚上透出暖光
+  const doorMat = new THREE.MeshLambertMaterial({ color: 0x3B2A4A, emissive: 0xFFB050, emissiveIntensity: 0, flatShading: true });
+  glows.push({ m: doorMat, day: 0.05, night: 1.5 });
+  add(g, new THREE.ShapeGeometry(new THREE.Shape([new THREE.Vector2(-1.0, 0), new THREE.Vector2(1.0, 0), new THREE.Vector2(0, 2.2)])), doorMat, 0, 0.18, R + 0.04).castShadow = false;
+  addLight(g, 0, 1.3, R + 1.2, 0xFFB35C, 7, 10);
+
+  const signTex = makeBannerTexture((CONTENT.sections.webinar ? CONTENT.sections.webinar.ride : '').toUpperCase());
+  const signFace = new THREE.MeshLambertMaterial({ map: signTex, emissive: 0xFFFFFF, emissiveMap: signTex, emissiveIntensity: 0 });
+  glows.push({ m: signFace, day: 0.05, night: 0.6 });
+  const signSide = mat(P.navy);
+  const sign = new THREE.Mesh(new THREE.BoxGeometry(3.7, 0.8, 0.16), [signSide, signSide, signSide, signSide, signFace, signFace]);
+  sign.position.set(0, 3.55, R + 1.75);
+  sign.castShadow = true;
+  g.add(sign);
+
+  makeFlag(g, 1.5, 0.85, P.mustard, 0.07, top + 1.25, 0, 0.3);
+  for (const [end, a] of postTops) makeFlag(g, 0.6, 0.36, P.brick, end.x, end.y + 0.1, end.z, a);
+}
+
+/* ---------------------------------------------------------------------
+   13. 設施 6：墓園（Lessons）— 墓碑、鐵欄杆、枯樹，薄霧和提燈
+   --------------------------------------------------------------------- */
+function buildGraveyard(g) {
+  const b = new Batch();
+  b.add(new THREE.CylinderGeometry(5.6, 5.8, 0.18, 16), mat(0x6E8F5A), xf(0, 0.09, 0));
+  // 鐵欄杆（正面留入口）
+  const posts = [];
+  for (let i = 0; i < 20; i++) {
+    const a = i / 20 * TAU, w = Math.atan2(Math.sin(a), Math.cos(a));
+    posts.push(Math.abs(w) < 0.44 ? null : V(Math.sin(a) * 5.2, 0, Math.cos(a) * 5.2));
+  }
+  posts.forEach((p, i) => {
+    if (!p) return;
+    b.add(new THREE.BoxGeometry(0.14, 1.15, 0.14), mat(P.iron), xf(p.x, 0.7, p.z));
+    b.add(new THREE.ConeGeometry(0.11, 0.3, 4), mat(P.iron), xf(p.x, 1.42, p.z));
+    const q = posts[(i + 1) % posts.length];
+    if (q) for (const y of [0.5, 1.0]) b.beam(V(p.x, y, p.z), V(q.x, y, q.z), 0.035, mat(P.iron), 4);
+  });
+  // 入口石柱 + 提燈
+  const lanternMat = glowMat(0xFFD27A, 0.15, 2.4);
+  const lantern = (x, y, z) => {
+    b.add(new THREE.BoxGeometry(0.44, 0.06, 0.44), mat(P.iron), xf(x, y, z));
+    b.add(new THREE.BoxGeometry(0.34, 0.42, 0.34), lanternMat, xf(x, y + 0.24, z));
+    b.add(new THREE.ConeGeometry(0.32, 0.3, 4), mat(P.iron), xf(x, y + 0.6, z, 0, Math.PI / 4));
+  };
+  for (const s of [-1, 1]) {
+    const x = s * 5.2 * Math.sin(0.5), z = 5.2 * Math.cos(0.5);
+    b.add(new THREE.BoxGeometry(0.5, 1.5, 0.5), mat(P.stone), xf(x, 0.93, z));
+    lantern(x, 1.71, z);
+  }
+  // 墓碑
+  const STONES = [[-2.6, -1.6, 0.12, 0], [0, -2.7, -0.05, 1], [2.5, -1.3, -0.1, 2], [-1.6, 0.7, 0.07, 1], [1.4, 1.0, 0, 0]];
+  for (const [x, z, tilt, kind] of STONES) {
+    const M = xf(x, 0.18, z, 0, rr(-0.2, 0.2), tilt);
+    const part = (geo, col, ...args) => b.add(geo, mat(col), M.clone().multiply(xf(...args)));
+    if (kind === 0) {
+      part(new THREE.BoxGeometry(1.0, 1.0, 0.28), P.stone, 0, 0.5, 0);
+      part(new THREE.CylinderGeometry(0.5, 0.5, 0.28, 10), P.stone, 0, 1.0, 0, Math.PI / 2);
+    } else if (kind === 1) {
+      part(new THREE.BoxGeometry(0.24, 1.6, 0.24), P.stone, 0, 0.8, 0);
+      part(new THREE.BoxGeometry(0.9, 0.24, 0.24), P.stone, 0, 1.15, 0);
+    } else {
+      part(new THREE.BoxGeometry(0.85, 1.2, 0.3), P.stone, 0, 0.6, 0);
+      part(new THREE.ConeGeometry(0.6, 0.45, 4), P.stone, 0, 1.42, 0, 0, Math.PI / 4, 0, 1, 1, 0.5);
+    }
+    part(new THREE.BoxGeometry(1.2, 0.12, 0.5), P.stoneDark, 0, 0.06, 0);
+    b.add(new THREE.SphereGeometry(0.55, 7, 4, 0, TAU, 0, Math.PI / 2), mat(P.soil), M.clone().multiply(xf(0, 0, 0.95, 0, 0, 0, 1, 0.35, 1.5)));
+  }
+  // 枯樹，枝上掛一盞提燈
+  b.beam(V(3.3, 0.1, -3.0), V(3.5, 2.7, -3.1), 0.24, mat(0x5A4636), 6, 0.12);
+  b.beam(V(3.45, 2.0, -3.08), V(2.5, 3.0, -2.8), 0.1, mat(0x5A4636), 5, 0.05);
+  b.beam(V(3.48, 2.3, -3.1), V(4.4, 3.3, -3.4), 0.09, mat(0x5A4636), 5, 0.04);
+  b.beam(V(3.5, 2.6, -3.1), V(3.7, 3.6, -3.0), 0.08, mat(0x5A4636), 5, 0.03);
+  b.beam(V(2.5, 3.0, -2.8), V(2.5, 2.4, -2.8), 0.02, mat(P.iron), 3);
+  lantern(2.5, 2.1, -2.8);
+  b.flush(g);
+
+  const glowLight = addLight(g, 0, 1.9, 2.4, 0xFFC56E, 5, 10);
+  const lightBase = pointLights[pointLights.length - 1];
+
+  // 薄霧
+  const fogMat = new THREE.SpriteMaterial({ map: fogTex, color: 0xF2F4F7, transparent: true, opacity: 0.3, depthWrite: false });
+  const puffs = [];
+  for (let i = 0; i < 14; i++) {
+    const s = new THREE.Sprite(fogMat);
+    const p = { s, r: rr(0.5, 4.4), a: rand() * TAU, sp: rr(0.05, 0.12), y: rr(0.35, 0.9), w: rr(2.6, 3.8) };
+    s.scale.set(p.w, p.w * 0.38, 1);
+    g.add(s);
+    puffs.push(p);
+  }
+  const fogDay = new THREE.Color(0xF2F4F7), fogNight = new THREE.Color(0xA8B8D8);
+  onFrame(t => {
+    for (const p of puffs) {
+      const a = p.a + t * p.sp;
+      p.s.position.set(Math.sin(a) * p.r, p.y + Math.sin(t * 0.6 + p.a) * 0.1, Math.cos(a) * p.r);
+    }
+    fogMat.color.lerpColors(fogDay, fogNight, night);
+    fogMat.opacity = 0.28 + 0.2 * night;
+    // 提燈閃爍
+    const flick = 0.85 + 0.1 * Math.sin(t * 13) + 0.05 * Math.sin(t * 31 + 1.7);
+    lanternMat.emissiveIntensity *= flick;
+    glowLight.intensity = lightBase.base * night * flick;
+  });
+}
+
+/* ---------------------------------------------------------------------
+   14. 雲：上面、下面各幾朵，慢慢繞著島飄；擋在鏡頭和島中間時會淡出
+   --------------------------------------------------------------------- */
+let cloudFade = () => {};
+function buildClouds() {
+  const clouds = [];
+  const spots = [
+    [0.3, 64, 30, 1.3], [1.4, 72, 25, 1.0], [2.5, 60, 33, 1.2], [3.6, 68, 28, 1.1], [4.7, 62, 31, 1.4], [5.6, 74, 24, 1.0],
+    [0.9, 55, -34, 1.6], [2.2, 62, -40, 1.3], [3.9, 52, -32, 1.5], [5.2, 64, -42, 1.4]
+  ];
+  for (const [a, r, y, s] of spots) {
+    const grp = new THREE.Group();
+    const b = new Batch();
+    const cloudMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF, flatShading: true, transparent: true });
+    cloudMats.push(cloudMat);
+    const n = 4 + Math.floor(rand() * 3);
+    for (let i = 0; i < n; i++) {
+      b.add(new THREE.IcosahedronGeometry(rr(1.7, 2.8), 0), cloudMat, xf((i - n / 2) * 2.0 + rr(-0.4, 0.4), rr(0, 1.1), rr(-1, 1), rand(), rand(), 0, 1, 0.75, 1));
+    }
+    b.flush(grp, { cast: false, receive: false });
+    grp.scale.setScalar(s);
+    scene.add(grp);
+    clouds.push({ grp, mat: cloudMat, s, a, r, y, sp: rr(0.008, 0.02), ph: rand() * TAU, fade: 1 });
+  }
+  onFrame((t, dt) => {
+    for (const c of clouds) {
+      c.a += c.sp * dt;
+      c.grp.position.set(Math.sin(c.a) * c.r, c.y + Math.sin(t * 0.4 + c.ph) * 0.8, Math.cos(c.a) * c.r);
+      c.grp.rotation.y = c.a + Math.PI / 2;
+    }
+  });
+  // 雲如果在「鏡頭 → 目前看的點」這條線附近，就淡出（用真實時間，暫停時也會淡）
+  const seg = new THREE.Vector3(), rel = new THREE.Vector3();
+  cloudFade = dt => {
+    seg.subVectors(controls.target, camera.position);
+    const len2 = seg.lengthSq();
+    for (const c of clouds) {
+      rel.subVectors(c.grp.position, camera.position);
+      const t = clamp(rel.dot(seg) / len2, 0, 1);
+      const d = rel.addScaledVector(seg, -t).length();
+      const block = t > 0.02 && t < 0.97 && d < 32 * t + 7 * c.s; // 32：島的半徑，越靠近島，擋到的範圍越大
+      c.fade += ((block ? 0 : 1) - c.fade) * (1 - Math.exp(-dt * 5));
+      c.mat.opacity = c.fade;
+      c.mat.depthWrite = c.fade > 0.98;
+      c.grp.visible = c.fade > 0.02;
+    }
+  };
+}
+
+/* ---------------------------------------------------------------------
+   15. 煙火（只在晚上，點天空就放）
+   --------------------------------------------------------------------- */
+const fireworks = [];
+const fwGroup = new THREE.Group();
+scene.add(fwGroup);
+const flash = new THREE.PointLight(0xFFD7A0, 0, 90, 1.2);
+scene.add(flash);
+let flashK = 0;
+const FW_COLORS = [0xFF7A45, 0xFFD34E, 0xFFF3D6, 0x8FD0F0, 0xA6E07A, 0xFF8FB1, 0xC9A2FF];
+
+function launchFirework(end) {
+  if (fireworks.length > 10) return;
+  const start = V(end.x * 0.35, 1.5, end.z * 0.35);
+  const N = 14, pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) pos.set([start.x, start.y, start.z], i * 3);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const m = new THREE.PointsMaterial({ color: 0xFFE7B0, size: 0.6, map: glowTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false });
+  const pts = new THREE.Points(geo, m);
+  pts.frustumCulled = false;
+  fwGroup.add(pts);
+  fireworks.push({ kind: 'rocket', pts, start, end, k: 0, dur: rr(0.85, 1.15) });
+}
+function burst(at) {
+  const N = SMALL ? 110 : 170;
+  const pos = new Float32Array(N * 3), col = new Float32Array(N * 3), vel = new Float32Array(N * 3);
+  const c1 = new THREE.Color(pick(FW_COLORS)), c2 = new THREE.Color(pick(FW_COLORS));
+  const speed = rr(7, 10);
+  for (let i = 0; i < N; i++) {
+    const u = rand() * 2 - 1, th = rand() * TAU, s = Math.sqrt(1 - u * u), sp = speed * rr(0.85, 1);
+    vel.set([s * Math.cos(th) * sp, u * sp, s * Math.sin(th) * sp], i * 3);
+    pos.set([at.x, at.y, at.z], i * 3);
+    const c = i % 3 === 0 ? c2 : c1;
+    col.set([c.r, c.g, c.b], i * 3);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const m = new THREE.PointsMaterial({ size: 1.0, map: glowTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false });
+  const pts = new THREE.Points(geo, m);
+  pts.frustumCulled = false;
+  fwGroup.add(pts);
+  fireworks.push({ kind: 'burst', pts, vel, age: 0, life: 2.4 });
+  flash.position.copy(at);
+  flash.color.copy(c1);
+  flashK = 1;
+}
+function stepFireworks(dt) {
+  for (let i = fireworks.length - 1; i >= 0; i--) {
+    const f = fireworks[i];
+    const attr = f.pts.geometry.attributes.position, a = attr.array;
+    let done = false;
+    if (f.kind === 'rocket') {
+      f.k = Math.min(1, f.k + dt / f.dur);
+      const e = 1 - (1 - f.k) ** 2;
+      a.copyWithin(3, 0, a.length - 3); // 尾巴往後挪一格
+      a[0] = lerp(f.start.x, f.end.x, e) + Math.sin(f.k * 24) * 0.06;
+      a[1] = lerp(f.start.y, f.end.y, e);
+      a[2] = lerp(f.start.z, f.end.z, e);
+      if (f.k >= 1) { burst(f.end); done = true; }
+    } else {
+      f.age += dt;
+      const v = f.vel, drag = Math.exp(-1.4 * dt);
+      for (let j = 0; j < v.length; j += 3) {
+        v[j] *= drag;
+        v[j + 1] = v[j + 1] * drag - 3.5 * dt;
+        v[j + 2] *= drag;
+        a[j] += v[j] * dt;
+        a[j + 1] += v[j + 1] * dt;
+        a[j + 2] += v[j + 2] * dt;
+      }
+      const k = f.age / f.life;
+      f.pts.material.opacity = Math.max(0, 1 - k * k);
+      f.pts.material.size = 1.0 * (1 - k * 0.45);
+      if (f.age >= f.life) done = true;
+    }
+    attr.needsUpdate = true;
+    if (done) {
+      fwGroup.remove(f.pts);
+      f.pts.geometry.dispose();
+      f.pts.material.dispose();
+      fireworks.splice(fireworks.indexOf(f), 1);
+    }
+  }
+  flashK *= Math.exp(-5 * dt);
+  flash.intensity = flashK * 70;
+}
+
+/* ---------------------------------------------------------------------
+   16. 蓋島！
+   --------------------------------------------------------------------- */
+buildIsland();
+buildPlaza();
+buildPaths();
+buildLamps();
+buildTrees();
+buildClouds();
+
+const BUILDERS = {
+  about: buildGate,
+  timeline: buildFerrisWheel,
+  projects: buildCoaster,
+  places: buildGlobe,
+  skills: buildGarden,
+  webinar: buildTent,
+  lessons: buildGraveyard
+};
+for (const key of Object.keys(BUILDERS)) {
+  if (!LAYOUT[key]) continue;
+  const g = placeFacility(key);
+  BUILDERS[key](g);
+  registerFacility(key, g);
+}
+
+// 所有實體（用來判斷滑鼠點到的是設施、地面還是天空）
+const solids = [];
+world.traverse(o => { if (o.isMesh) solids.push(o); });
+
+/* ---------------------------------------------------------------------
+   17. 鏡頭：總覽、飛到設施、面板讓位、閒置自轉
+   --------------------------------------------------------------------- */
+function overviewPose() {
+  const fovHalf = THREE.MathUtils.degToRad(camera.fov) / 2;
+  const d = clamp(34 / (Math.tan(fovHalf) * Math.min(camera.aspect, 1.7)), 50, 150);
+  const target = V(0, 2.5, 0);
+  return { pos: target.clone().addScaledVector(V(0.28, 0.5, 0.82).normalize(), d), target };
+}
+function focusPose(key) {
+  const L = LAYOUT[key], base = V(L.x, 0, L.z);
+  const target = V(...L.focus).applyAxisAngle(UP, L.yaw).add(base);
+  const pos = V(...L.cam).applyAxisAngle(UP, L.yaw).add(base);
+  if (camera.aspect < 0.8) pos.sub(target).multiplyScalar(1.4).add(target); // 直式手機退遠一點
+  return { pos, target };
+}
+
+let flight = null;
+function flyTo({ pos, target }, instant) {
+  if (instant || REDUCED) {
+    flight = null;
+    camera.position.copy(pos);
+    controls.target.copy(target);
+    controls.enabled = true;
+    controls.update();
+    return;
+  }
+  const d = camera.position.distanceTo(pos);
+  flight = { p0: camera.position.clone(), t0: controls.target.clone(), p1: pos, t1: target, k: 0, dur: clamp(0.9 + d / 60, 1.1, 2.2), lift: Math.min(7, d * 0.12) };
+  controls.enabled = false;
+}
+function stepFlight(dt) {
+  flight.k = Math.min(1, flight.k + dt / flight.dur);
+  const k = flight.k, e = k < 0.5 ? 4 * k * k * k : 1 - (-2 * k + 2) ** 3 / 2;
+  camera.position.lerpVectors(flight.p0, flight.p1, e);
+  camera.position.y += Math.sin(Math.PI * e) * flight.lift;
+  controls.target.lerpVectors(flight.t0, flight.t1, e);
+  camera.lookAt(controls.target);
+  if (k >= 1) { flight = null; controls.enabled = true; controls.update(); }
+}
+
+// 面板打開時，把畫面中心往沒被擋住的地方挪
+const inset = new THREE.Vector2(), insetTarget = new THREE.Vector2();
+function applyView() {
+  const w = innerWidth, h = innerHeight;
+  camera.setViewOffset(w, h, inset.x, inset.y, w, h);
+  camera.updateProjectionMatrix();
+}
+function stepInset(dt) {
+  if (inset.equals(insetTarget)) return;
+  if (REDUCED || inset.distanceTo(insetTarget) < 0.5) inset.copy(insetTarget);
+  else inset.lerp(insetTarget, 1 - Math.exp(-dt * 7));
+  applyView();
+}
+
+let lastActive = performance.now();
+const markActive = () => { lastActive = performance.now(); };
+['pointerdown', 'pointermove', 'wheel', 'keydown', 'touchstart'].forEach(ev => window.addEventListener(ev, markActive, { passive: true }));
+controls.addEventListener('start', () => { markActive(); flight = null; });
+
+/* ---------------------------------------------------------------------
+   18. 滑鼠／觸控：點設施開面板、點天空放煙火、滑過設施亮標籤
+   --------------------------------------------------------------------- */
+const raycaster = new THREE.Raycaster();
+const ndc = new THREE.Vector2();
+const canvas = renderer.domElement;
+const activePointers = new Set();
+let down = null, multi = false, hoverDirty = false, hoverKey = null, pointerType = 'mouse';
+
+function setNdc(e) {
+  ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1);
+}
+function setHover(key) {
+  if (key === hoverKey) return;
+  hoverKey = key;
+  canvas.style.cursor = key ? 'pointer' : '';
+  UI.setHover(key);
+}
+function hitKey() {
+  raycaster.setFromCamera(ndc, camera);
+  const hit = raycaster.intersectObjects(solids, false)[0];
+  return hit ? (hit.object.userData.key || '') : null; // null＝天空，''＝地面
+}
+canvas.addEventListener('pointerdown', e => {
+  activePointers.add(e.pointerId);
+  if (activePointers.size > 1) multi = true;
+  if (activePointers.size === 1) { multi = false; down = { x: e.clientX, y: e.clientY, t: performance.now() }; }
+});
+const endPointer = e => {
+  activePointers.delete(e.pointerId);
+  if (e.type === 'pointerup' && !multi && down && activePointers.size === 0) {
+    const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y);
+    if (moved < 8 && performance.now() - down.t < 600) handleTap(e);
+  }
+  if (activePointers.size === 0) down = null;
+};
+canvas.addEventListener('pointerup', endPointer);
+canvas.addEventListener('pointercancel', endPointer);
+canvas.addEventListener('pointermove', e => { pointerType = e.pointerType; setNdc(e); hoverDirty = true; });
+canvas.addEventListener('pointerleave', () => setHover(null));
+
+function handleTap(e) {
+  setNdc(e);
+  const key = hitKey();
+  if (key) { UI.open(key); return; }
+  if (key === '') return;
+  // 點到天空
+  if (night > 0.5) {
+    const ray = raycaster.ray;
+    const end = ray.origin.clone().addScaledVector(ray.direction, camera.position.distanceTo(controls.target) + 12);
+    end.y = clamp(end.y, 14, 46);
+    const hr = Math.hypot(end.x, end.z);
+    if (hr > 42) { end.x *= 42 / hr; end.z *= 42 / hr; }
+    launchFirework(end);
+  } else {
+    UI.toast(CONTENT.ui.fireworksNeedNight, 3200);
+  }
+}
+function updateHover() {
+  if (!hoverDirty || pointerType !== 'mouse' || activePointers.size) return;
+  hoverDirty = false;
+  setHover(hitKey() || null);
+}
+
+/* ---------------------------------------------------------------------
+   19. 浮動標籤：投影到螢幕上，疊到就往上推
+   --------------------------------------------------------------------- */
+const labelEls = UI.labelEls;
+const labelSize = {};
+function measureLabels() {
+  for (const k in labelEls) labelSize[k] = { w: labelEls[k].offsetWidth, h: labelEls[k].offsetHeight + 3 };
+}
+const pv = new THREE.Vector3();
+function layoutLabels() {
+  const W = innerWidth, H = innerHeight, items = [];
+  for (const key of CONTENT.order) {
+    const f = facilities[key], el = labelEls[key], sz = labelSize[key];
+    if (!f || !el || !sz) continue;
+    f.anchor.getWorldPosition(pv).project(camera);
+    if (pv.z > 1 || pv.z < -1 || Math.abs(pv.x) > 1.4 || Math.abs(pv.y) > 1.4) {
+      if (el._shown !== false) { el.style.visibility = 'hidden'; el._shown = false; }
+      continue;
+    }
+    const x = (pv.x * 0.5 + 0.5) * W, y = (-pv.y * 0.5 + 0.5) * H;
+    items.push({ el, y, w: sz.w, h: sz.h, left: x - sz.w / 2, top: y - 10 - sz.h });
+  }
+  // 從畫面最下面的開始放；跟已經放好的重疊，就推到它上面，一直推到不重疊為止
+  items.sort((a, b) => b.y - a.y);
+  const GAP = 6, placed = [];
+  for (const it of items) {
+    for (let guard = 0, moved = true; moved && guard < 30; guard++) {
+      moved = false;
+      for (const p of placed) {
+        const overlapX = it.left < p.left + p.w + GAP && it.left + it.w + GAP > p.left;
+        const overlapY = it.top < p.top + p.h + GAP && it.top + it.h + GAP > p.top;
+        if (overlapX && overlapY) { it.top = p.top - GAP - it.h; moved = true; }
+      }
+    }
+    placed.push(it);
+  }
+  placed.forEach((it, i) => {
+    const el = it.el;
+    if (el._shown !== true) { el.style.visibility = ''; el._shown = true; }
+    el.style.transform = `translate3d(${it.left.toFixed(1)}px, ${it.top.toFixed(1)}px, 0)`;
+    el.style.setProperty('--stem', Math.max(0, it.y - it.top - it.h).toFixed(1) + 'px');
+    el.style.zIndex = String(20 - i);
+  });
+}
+
+/* ---------------------------------------------------------------------
+   20. 視窗大小、主迴圈、給 UI 用的 World 介面
+   --------------------------------------------------------------------- */
+function onResize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h);
+  camera.fov = w / h < 0.8 ? 55 : 42;
+  applyView();
+  measureLabels();
+}
+window.addEventListener('resize', onResize);
+onResize();
+if (document.fonts) document.fonts.ready.then(measureLabels);
+
+let firstNight = true;
+window.World = {
+  focus(key, opts = {}) { if (LAYOUT[key]) flyTo(focusPose(key), opts.instant); },
+  home(opts = {}) { flyTo(overviewPose(), opts.instant); },
+  setNight(on) {
+    nightTarget = on ? 1 : 0;
+    if (on && firstNight && !REDUCED) {
+      firstNight = false;
+      setTimeout(() => launchFirework(V(rr(-10, 10), 24, rr(-16, -6))), 1300);
+    }
+  },
+  setPaused(p) { paused = p; },
+  setInset(right, bottom) { insetTarget.set(right / 2, bottom / 2); }
+};
+
+// 開場：從遠處飛進來
+const home = overviewPose();
+camera.position.copy(home.pos).multiplyScalar(1.7).add(V(0, 18, 0));
+controls.target.copy(home.target);
+camera.lookAt(home.target);
+applyNight();
+flyTo(home, false);
+
+let firstFrame = true;
+renderer.setAnimationLoop(time => {
+  timer.update(time);
+  const dt = clamp(timer.getDelta(), 0, 0.05); // 第一格可能是負的（rAF 時間早於 Timer 建立），夾在 0 以上
+  if (document.body.classList.contains('classic-open')) return; // Classic view 開著時不畫，省電
+
+  if (night !== nightTarget) {
+    night += clamp(nightTarget - night, -dt / 1.4, dt / 1.4);
+    applyNight();
+  }
+  for (const g of glows) g.m.emissiveIntensity = g.day + (g.night - g.day) * night;
+
+  const adt = paused ? 0 : dt;
+  animT += adt;
+  world.position.y = Math.sin(animT * 0.5) * 0.22;
+  for (const fn of animators) fn(animT, adt);
+  stepFireworks(dt);
+  cloudFade(dt);
+
+  stepInset(dt);
+  if (flight) {
+    stepFlight(dt);
+  } else {
+    controls.autoRotate = !paused && performance.now() - lastActive > 5000;
+    controls.maxPolarAngle = camera.position.distanceTo(controls.target) < 45 ? Math.PI * 0.47 : Math.PI * 0.58;
+    controls.update(dt);
+    const t = controls.target, r = Math.hypot(t.x, t.z);
+    if (r > 32) { t.x *= 32 / r; t.z *= 32 / r; }
+    t.y = clamp(t.y, -8, 16);
+  }
+
+  updateHover();
+  renderer.render(scene, camera);
+  layoutLabels();
+
+  if (firstFrame) { firstFrame = false; UI.worldReady(); }
+});
+</script>
+</body>
+</html>
